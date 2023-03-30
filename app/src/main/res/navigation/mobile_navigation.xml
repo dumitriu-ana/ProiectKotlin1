@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/acasaFragment">
+
+
+
+    <fragment
+        android:id="@+id/acasaFragment"
+        android:name="com.example.licenta2.ui.acasa.AcasaFragment"
+        android:label="Acasa"
+        tools:layout="@layout/fragment_acasa" />
+
+    <fragment
+        android:id="@+id/facturiFragment"
+        android:name="com.example.licenta2.ui.facturi.FacturiFragment"
+        android:label="Facturi"
+        tools:layout="@layout/fragment_facturi" />
+    <fragment
+        android:id="@+id/incasariFragment"
+        android:name="com.example.licenta2.ui.incasari.IncasariFragment"
+        android:label="Incasari"
+        tools:layout="@layout/fragment_incasari" />
+    <fragment
+        android:id="@+id/clientiFragment"
+        android:name="com.example.licenta2.ui.clienti.ClientiFragment"
+        android:label="Clienti"
+        tools:layout="@layout/fragment_clienti" >
+        <action
+            android:id="@+id/action_clientiFragment_to_adaugaClientFragment"
+            app:destination="@id/adaugaClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/produseFragment"
+        android:name="com.example.licenta2.ui.produse.ProduseFragment"
+        android:label="Produse"
+        tools:layout="@layout/fragment_produse" />
+    <fragment
+        android:id="@+id/registruFragment"
+        android:name="com.example.licenta2.ui.registru.RegistruFragment"
+        android:label="Registru"
+        tools:layout="@layout/fragment_registru" />
+    <fragment
+        android:id="@+id/previziuniFragment"
+        android:name="com.example.licenta2.ui.previziuni.PreviziuniFragment"
+        android:label="Previziuni"
+        tools:layout="@layout/fragment_previziuni" />
+    <fragment
+        android:id="@+id/setariFragment"
+        android:name="com.example.licenta2.ui.setari.SetariFragment"
+        android:label="Setari"
+        tools:layout="@layout/fragment_setari" />
+    <fragment
+        android:id="@+id/adaugaClientFragment"
+        android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
+        android:label="fragment_adauga_client"
+        tools:layout="@layout/fragment_adauga_client" />
+
+</navigation>
