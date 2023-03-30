@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.licenta2.R
-import com.example.licenta2.databinding.FragmentClientiBinding
 import com.example.licenta2.databinding.FragmentProduseBinding
 
 

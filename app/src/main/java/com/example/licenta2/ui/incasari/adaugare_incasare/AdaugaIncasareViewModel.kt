@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class IncasareViewModel : ViewModel() {
+class AdaugaIncasareViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Incasari"
+        value = "Adauga Incasare"
     }
     val text: LiveData<String> = _text
 }

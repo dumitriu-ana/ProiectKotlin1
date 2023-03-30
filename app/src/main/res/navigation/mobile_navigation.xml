@@ -67,22 +67,22 @@
     <fragment
         android:id="@+id/adaugaClientFragment"
         android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
-        android:label="fragment_adauga_client"
+        android:label="Adaugare Client"
         tools:layout="@layout/fragment_adauga_client" />
     <fragment
         android:id="@+id/adaugaFactura"
         android:name="com.example.licenta2.ui.facturi.adaugare_facturi.AdaugaFactura"
-        android:label="fragment_adauga_factura"
+        android:label="Adaugare Factura"
         tools:layout="@layout/fragment_adauga_factura" />
     <fragment
         android:id="@+id/adaugaIncasare"
         android:name="com.example.licenta2.ui.incasari.adaugare_incasare.AdaugaIncasare"
-        android:label="fragment_adauga_incasare"
+        android:label="Adaugare Incasare"
         tools:layout="@layout/fragment_adauga_incasare" />
     <fragment
         android:id="@+id/adaugaProdus"
         android:name="com.example.licenta2.ui.produse.adaugare_produse.AdaugaProdus"
-        android:label="fragment_adauga_produs"
+        android:label="Adaugare Produs"
         tools:layout="@layout/fragment_adauga_produs" />
 
 </navigation>

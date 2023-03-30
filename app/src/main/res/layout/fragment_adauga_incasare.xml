@@ -3,12 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.incasari.adaugare_incasare.AdaugaIncasare">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        >
+
+        <TextView
+            android:id="@+id/text_adauga_incasare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adauga Incasare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Button
+            android:id="@+id/buton_salvare_incasare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salveaza Incasare"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_adauga_incasare"
+            app:layout_constraintVertical_bias="0.926" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
