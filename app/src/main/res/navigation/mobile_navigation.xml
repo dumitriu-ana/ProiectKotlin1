@@ -44,7 +44,11 @@
         android:id="@+id/produseFragment"
         android:name="com.example.licenta2.ui.produse.ProduseFragment"
         android:label="Produse"
-        tools:layout="@layout/fragment_produse" />
+        tools:layout="@layout/fragment_produse" >
+        <action
+            android:id="@+id/action_produseFragment_to_adaugaProdus"
+            app:destination="@id/adaugaProdus" />
+    </fragment>
     <fragment
         android:id="@+id/registruFragment"
         android:name="com.example.licenta2.ui.registru.RegistruFragment"
@@ -75,5 +79,10 @@
         android:name="com.example.licenta2.ui.incasari.adaugare_incasare.AdaugaIncasare"
         android:label="fragment_adauga_incasare"
         tools:layout="@layout/fragment_adauga_incasare" />
+    <fragment
+        android:id="@+id/adaugaProdus"
+        android:name="com.example.licenta2.ui.produse.adaugare_produse.AdaugaProdus"
+        android:label="fragment_adauga_produs"
+        tools:layout="@layout/fragment_adauga_produs" />
 
 </navigation>
