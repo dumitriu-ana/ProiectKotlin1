@@ -17,12 +17,20 @@
         android:id="@+id/facturiFragment"
         android:name="com.example.licenta2.ui.facturi.FacturiFragment"
         android:label="Facturi"
-        tools:layout="@layout/fragment_facturi" />
+        tools:layout="@layout/fragment_facturi" >
+        <action
+            android:id="@+id/action_facturiFragment_to_adaugaFactura"
+            app:destination="@id/adaugaFactura" />
+    </fragment>
     <fragment
         android:id="@+id/incasariFragment"
         android:name="com.example.licenta2.ui.incasari.IncasariFragment"
         android:label="Incasari"
-        tools:layout="@layout/fragment_incasari" />
+        tools:layout="@layout/fragment_incasari" >
+        <action
+            android:id="@+id/action_incasariFragment_to_adaugaIncasare"
+            app:destination="@id/adaugaIncasare" />
+    </fragment>
     <fragment
         android:id="@+id/clientiFragment"
         android:name="com.example.licenta2.ui.clienti.ClientiFragment"
@@ -57,5 +65,15 @@
         android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
         android:label="fragment_adauga_client"
         tools:layout="@layout/fragment_adauga_client" />
+    <fragment
+        android:id="@+id/adaugaFactura"
+        android:name="com.example.licenta2.ui.facturi.adaugare_facturi.AdaugaFactura"
+        android:label="fragment_adauga_factura"
+        tools:layout="@layout/fragment_adauga_factura" />
+    <fragment
+        android:id="@+id/adaugaIncasare"
+        android:name="com.example.licenta2.ui.incasari.adaugare_incasare.AdaugaIncasare"
+        android:label="fragment_adauga_incasare"
+        tools:layout="@layout/fragment_adauga_incasare" />
 
 </navigation>

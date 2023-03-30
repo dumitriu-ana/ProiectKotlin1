@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAcasaBinding
 import com.example.licenta2.databinding.FragmentFacturiBinding
@@ -28,9 +29,12 @@ class FacturiFragment : Fragment() {
         _binding = FragmentFacturiBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //val textView: TextView = binding.textAcasa
+
+        binding.butonAdaugaFactura.setOnClickListener {
+            findNavController().navigate(R.id.action_facturiFragment_to_adaugaFactura)
+        }
         facturiViewModel.text.observe(viewLifecycleOwner, Observer {
-            //binding.textFacturi.text = it
+            binding.textFacturi.text = it
         })
         return root
     }
