@@ -24,6 +24,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="28dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTipDocumentIncasare" />
+
         <Button
             android:id="@+id/buton_salvare_incasare"
             android:layout_width="wrap_content"
@@ -62,12 +73,12 @@
             android:id="@+id/textViewValoareIncasare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="56dp"
             android:text="Valoare"
             app:layout_constraintEnd_toStartOf="@+id/editTextValoareIncasare"
-            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTipDocumentIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
 
         <TextView
             android:id="@+id/textViewDataIncasare"
@@ -139,13 +150,13 @@
             android:id="@+id/editTextValoareIncasare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.82"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
 
         <EditText
             android:id="@+id/editTextDataIncasare"

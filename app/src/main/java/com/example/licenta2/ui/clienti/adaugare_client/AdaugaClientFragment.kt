@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAdaugaClientBinding
 
 
@@ -27,6 +29,9 @@ class AdaugaClientFragment : Fragment() {
 
         adaugaClientViewModel.text.observe(viewLifecycleOwner, Observer {
             binding.textAdaugaClient.text = it
+
+
+
         })
         return root
     }
