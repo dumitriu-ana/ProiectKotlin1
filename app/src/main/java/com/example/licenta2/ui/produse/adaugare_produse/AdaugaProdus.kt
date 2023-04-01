@@ -29,9 +29,14 @@ class AdaugaProdus : Fragment() {
 
         adaugaProdusViewModel.text.observe(viewLifecycleOwner, Observer {
             binding.textAdaugaProdus.text = it
+
         })
         return root
     }
+
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
