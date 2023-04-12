@@ -20,4 +20,10 @@
     <string name="menu_registru">Registru</string>
     <string name="menu_previziuni">Previziuni</string>
     <string name="menu_setari">Setari</string>
+
+    <string-array name="spinnerCotaTVA_items">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

@@ -15,20 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_adauga_client"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adauga Client"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <Button
                 android:id="@+id/buton_salvare_client"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="75dp"
+                android:layout_marginBottom="40dp"
                 android:text="Salveaza client"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -39,265 +33,302 @@
 
             <TextView
                 android:id="@+id/textViewCIF"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="25dp"
                 android:text="CIF"
-                app:layout_constraintEnd_toStartOf="@+id/editTextCIF"
-                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_adauga_client" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewDenumire"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Denumire client"
-                app:layout_constraintEnd_toStartOf="@+id/editTextDenumireClient"
-                app:layout_constraintHorizontal_bias="0.222"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.051"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCIF" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextCIF" />
 
             <TextView
                 android:id="@+id/textViewRegCom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Reg. Com."
-                app:layout_constraintEnd_toStartOf="@+id/editTextRegCom"
-                app:layout_constraintHorizontal_bias="0.396"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.104"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDenumire" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextDenumireClient" />
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/editTextLocalitate"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBoxTVA" />
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxTVA"
+                app:layout_constraintVertical_bias="0.233" />
 
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/editTextNume"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextAdresa"
-                app:layout_constraintVertical_bias="0.563" />
+                app:layout_constraintVertical_bias="0.267" />
 
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
             <TextView
                 android:id="@+id/textViewLocalitate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
                 android:text="Localitate"
-                app:layout_constraintEnd_toStartOf="@+id/editTextLocalitate"
-                app:layout_constraintHorizontal_bias="0.241"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <TextView
                 android:id="@+id/textViewJudet"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Judet"
-                app:layout_constraintEnd_toStartOf="@+id/editTextJudet"
-                app:layout_constraintHorizontal_bias="0.351"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.154"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLocalitate" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextLocalitate" />
 
             <TextView
                 android:id="@+id/textViewAdresa"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Adresa"
-                app:layout_constraintEnd_toStartOf="@+id/editTextAdresa"
-                app:layout_constraintHorizontal_bias="0.38"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.098"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewJudet" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextJudet" />
 
             <TextView
                 android:id="@+id/textViewTelefon"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Telefon"
-                app:layout_constraintEnd_toStartOf="@+id/editTextTelefon"
-                app:layout_constraintHorizontal_bias="0.369"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.126"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNume" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextNume" />
 
             <TextView
                 android:id="@+id/textViewNume"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="25dp"
                 android:text="Nume"
-                app:layout_constraintEnd_toStartOf="@+id/editTextNume"
-                app:layout_constraintHorizontal_bias="0.341"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewAdresa" />
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <TextView
                 android:id="@+id/textViewEmail"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Email"
-                app:layout_constraintEnd_toStartOf="@+id/editTextEmail"
-                app:layout_constraintHorizontal_bias="0.351"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.095"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTelefon" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextTelefon" />
 
             <EditText
                 android:id="@+id/editTextDenumireClient"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:text="Denumire client"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextCIF" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewDenumire" />
 
             <CheckBox
                 android:id="@+id/checkBoxTVA"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Platitor de TVA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.582"
+                app:layout_constraintHorizontal_bias="0.447"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextRegCom" />
 
             <EditText
                 android:id="@+id/editTextRegCom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Reg. Com."
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.248"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDenumireClient" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegCom" />
 
             <EditText
                 android:id="@+id/editTextLocalitate"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="10"
+
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:inputType="textPersonName"
                 android:text="Localitate"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBoxTVA" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLocalitate" />
 
             <EditText
                 android:id="@+id/editTextJudet"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Judet"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextLocalitate" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textViewJudet"
+                app:layout_constraintTop_toBottomOf="@+id/textViewJudet" />
 
             <EditText
                 android:id="@+id/editTextAdresa"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Adresa"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.462"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextJudet" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewAdresa" />
 
             <EditText
                 android:id="@+id/editTextNume"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Nume"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.199"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextAdresa" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNume" />
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTelefon" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
             <EditText
                 android:id="@+id/editTextTelefon"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="phone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.288"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNume" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewTelefon" />
 
             <EditText
                 android:id="@+id/editTextCIF"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="CIF"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.825"
+                app:layout_constraintHorizontal_bias="0.248"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_adauga_client" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCIF" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

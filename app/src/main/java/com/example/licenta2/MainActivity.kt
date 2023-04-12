@@ -11,7 +11,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.example.licenta2.databinding.ActivityMainBinding
+import com.example.licenta2.persistence.database.AppDatabase
+import com.example.licenta2.persistence.entities.Produs
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,4 +58,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
