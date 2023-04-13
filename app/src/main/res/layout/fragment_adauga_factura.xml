@@ -15,32 +15,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_adauga_factura"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="Adauga Factura"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <View
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSerie" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextSerieFactura" />
 
             <View
                 android:id="@+id/view5"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -49,130 +39,154 @@
 
             <Button
                 android:id="@+id/buton_salvare_factura"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="75dp"
+                android:layout_marginBottom="40dp"
                 android:text="Salveaza Factura"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.071"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMentiuni"
+                app:layout_constraintTop_toBottomOf="@+id/editTextMentiuni"
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/textViewClientFactura"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="25dp"
                 android:text="Client"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_adauga_factura" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewAdresaLivrare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Adresa Livrare"
                 app:layout_constraintEnd_toStartOf="@+id/editTextAdresaFactura"
-                app:layout_constraintHorizontal_bias="0.56"
+                app:layout_constraintHorizontal_bias="0.605"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewClientFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerClientFactura" />
 
             <TextView
                 android:id="@+id/textViewData"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Data"
                 app:layout_constraintEnd_toStartOf="@+id/editTextData"
                 app:layout_constraintHorizontal_bias="0.289"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewAdresaLivrare" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextAdresaFactura" />
 
             <TextView
                 android:id="@+id/textViewSerie"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Serie"
                 app:layout_constraintEnd_toStartOf="@+id/editTextSerieFactura"
                 app:layout_constraintHorizontal_bias="0.296"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewData" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextData" />
 
             <TextView
                 android:id="@+id/textViewTermenDePlata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="10dp"
                 android:text="Termen de plata"
-                app:layout_constraintEnd_toStartOf="@+id/spinnerTermenDePlata"
-                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.071"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view5" />
 
             <TextView
                 android:id="@+id/textViewDataScadenta"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Data scadenta"
-                app:layout_constraintEnd_toStartOf="@+id/editTextDataScadenta"
-                app:layout_constraintHorizontal_bias="0.529"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTermenDePlata" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerTermenDePlata" />
 
             <TextView
                 android:id="@+id/textViewDataLivrarii"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Data livrarii"
-                app:layout_constraintEnd_toStartOf="@+id/editTextDataLivrarii"
-                app:layout_constraintHorizontal_bias="0.471"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.172"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDataScadenta" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextDataScadenta" />
 
             <TextView
                 android:id="@+id/textViewDataIncasarii"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Data incasarii"
-                app:layout_constraintEnd_toStartOf="@+id/editTextDataIncasarii"
-                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.067"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDataLivrarii" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextDataLivrarii" />
 
             <TextView
                 android:id="@+id/textViewIntocmitDe"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Document intocmit de "
-                app:layout_constraintEnd_toStartOf="@+id/editTextIntocmitDe"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDataIncasarii" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextDataIncasarii" />
 
             <TextView
                 android:id="@+id/textViewMentiuni"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="Mentiuni"
                 app:layout_constraintEnd_toStartOf="@+id/editTextMentiuni"
-                app:layout_constraintHorizontal_bias="0.325"
+                app:layout_constraintHorizontal_bias="0.345"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewIntocmitDe" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextIntocmitDe" />
 
             <Button
                 android:id="@+id/buttonAdaugaProdusFactura"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="75dp"
                 android:text="+ Adauga Produs"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.182"
@@ -181,117 +195,141 @@
 
             <Spinner
                 android:id="@+id/spinnerClientFactura"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.82"
                 app:layout_constraintStart_toEndOf="@+id/textViewClientFactura"
-                app:layout_constraintTop_toBottomOf="@+id/text_adauga_factura" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewClientFactura" />
 
             <EditText
                 android:id="@+id/editTextAdresaFactura"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="adresa"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerClientFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewAdresaLivrare" />
 
             <EditText
                 android:id="@+id/editTextData"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.796"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextAdresaFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewData" />
 
             <EditText
                 android:id="@+id/editTextSerieFactura"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="serie factura"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextData" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewSerie" />
 
             <EditText
                 android:id="@+id/editTextDataScadenta"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.81"
+                app:layout_constraintHorizontal_bias="0.258"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerTermenDePlata" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewDataScadenta" />
 
             <EditText
                 android:id="@+id/editTextDataLivrarii"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.805"
+                app:layout_constraintHorizontal_bias="0.293"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDataScadenta" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewDataLivrarii" />
 
             <EditText
                 android:id="@+id/editTextDataIncasarii"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.81"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDataLivrarii" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewDataIncasarii" />
 
             <EditText
                 android:id="@+id/editTextIntocmitDe"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="nume utilizator"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.761"
+                app:layout_constraintHorizontal_bias="0.701"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDataIncasarii" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewIntocmitDe" />
 
             <EditText
                 android:id="@+id/editTextMentiuni"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.925"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextIntocmitDe" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewMentiuni" />
 
             <Spinner
                 android:id="@+id/spinnerTermenDePlata"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="44dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/textViewTermenDePlata"
                 app:layout_constraintTop_toBottomOf="@+id/view5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

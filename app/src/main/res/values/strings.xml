@@ -26,4 +26,23 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="spinnerClientFactura_items">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="spinnerTermenDePlata_items">
+        <item>11111</item>
+        <item>222222</item>
+        <item>333333</item>
+    </string-array>
+
+    <string-array name="spinnerTipDocument_items">
+        <item>11111</item>
+        <item>222222</item>
+        <item>333333</item>
+    </string-array>
+
 </resources>

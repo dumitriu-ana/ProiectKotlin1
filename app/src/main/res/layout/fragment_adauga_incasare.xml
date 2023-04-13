@@ -13,175 +13,190 @@
         tools:layout_editor_absoluteX="12dp"
         tools:layout_editor_absoluteY="103dp">
 
-        <TextView
-            android:id="@+id/text_adauga_incasare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Adauga Incasare"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.477"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <View
             android:id="@+id/view7"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTipDocumentIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerTipDocument" />
 
         <Button
             android:id="@+id/buton_salvare_incasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="75dp"
             android:text="Salveaza Incasare"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_adauga_incasare"
-            app:layout_constraintVertical_bias="0.926" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextReprezentandIncasare"
+            app:layout_constraintVertical_bias="0.321" />
 
         <TextView
             android:id="@+id/textViewClientIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:text="Client"
-            app:layout_constraintEnd_toStartOf="@+id/autoCompleteNumeClient"
-            app:layout_constraintHorizontal_bias="0.333"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.16"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewNumarIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumarIncasare" />
 
         <TextView
             android:id="@+id/textViewTipDocumentIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:text="Tip Document"
-            app:layout_constraintEnd_toStartOf="@+id/spinner"
-            app:layout_constraintHorizontal_bias="0.41"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.148"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewClientIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/autoCompleteNumeClient" />
 
         <TextView
             android:id="@+id/textViewValoareIncasare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
             android:text="Valoare"
             app:layout_constraintEnd_toStartOf="@+id/editTextValoareIncasare"
-            app:layout_constraintHorizontal_bias="0.406"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view7" />
 
         <TextView
             android:id="@+id/textViewDataIncasare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:text="Data"
-            app:layout_constraintEnd_toStartOf="@+id/editTextDataIncasare"
-            app:layout_constraintHorizontal_bias="0.345"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.289"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewValoareIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextValoareIncasare" />
 
         <TextView
             android:id="@+id/textViewNumarIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
             android:text="Numar incasare"
-            app:layout_constraintEnd_toStartOf="@+id/editTextNumberSigned"
-            app:layout_constraintHorizontal_bias="0.477"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_adauga_incasare" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewReprezentandIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:text="Reprezentand"
-            app:layout_constraintEnd_toStartOf="@+id/editTextReprezentandIncasare"
-            app:layout_constraintHorizontal_bias="0.405"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDataIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDataIncasare" />
 
         <EditText
-            android:id="@+id/editTextNumberSigned"
-            android:layout_width="wrap_content"
+            android:id="@+id/editTextNumarIncasare"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:ems="10"
             android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.825"
+            app:layout_constraintHorizontal_bias="0.393"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_adauga_incasare" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewNumarIncasare" />
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteNumeClient"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:text="nume cleint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewClientIncasare" />
 
         <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="200dp"
+            android:id="@+id/spinnerTipDocument"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.781"
+            app:layout_constraintHorizontal_bias="0.241"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/autoCompleteNumeClient" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewTipDocumentIncasare" />
 
         <EditText
             android:id="@+id/editTextValoareIncasare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:ems="10"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.82"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewValoareIncasare"
             app:layout_constraintTop_toBottomOf="@+id/view7" />
 
         <EditText
             android:id="@+id/editTextDataIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:ems="10"
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.825"
+            app:layout_constraintHorizontal_bias="0.393"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextValoareIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewDataIncasare" />
 
         <EditText
             android:id="@+id/editTextReprezentandIncasare"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="25dp"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.825"
+            app:layout_constraintHorizontal_bias="0.393"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDataIncasare" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewReprezentandIncasare" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
