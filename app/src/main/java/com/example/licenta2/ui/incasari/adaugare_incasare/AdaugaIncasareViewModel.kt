@@ -11,6 +11,8 @@ import com.example.licenta2.persistence.entities.Incasare
 import com.example.licenta2.persistence.entities.Produs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class AdaugaIncasareViewModel : ViewModel() {
 
@@ -26,6 +28,9 @@ class AdaugaIncasareViewModel : ViewModel() {
         value = "Adauga Incasare"
     }
     val text: LiveData<String> = _text
+
+
+
 
     fun insertIncasare(incasare: Incasare) {
         viewModelScope.launch(Dispatchers.IO) {

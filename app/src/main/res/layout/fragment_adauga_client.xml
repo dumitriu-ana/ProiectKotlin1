@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.clienti.adaugare_client.AdaugaClientFragment">
+
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -57,13 +59,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextCIF" />
 
             <TextView
-                android:id="@+id/textViewRegCom"
+                android:id="@+id/textViewCUIRegCom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
-                android:text="Reg. Com."
+                android:text="CUI"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.104"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +81,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@+id/checkBoxTVA"
                 app:layout_constraintVertical_bias="0.233" />
 
@@ -210,10 +213,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.447"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextRegCom" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextCUIRegCom" />
 
             <EditText
-                android:id="@+id/editTextRegCom"
+                android:id="@+id/editTextCUIRegCom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -221,11 +224,11 @@
                 android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Reg. Com."
+                android:text="1234567890"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.248"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRegCom" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCUIRegCom" />
 
             <EditText
                 android:id="@+id/editTextLocalitate"
@@ -324,7 +327,7 @@
                 android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="CIF"
+                android:text="RO12345678"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.248"
                 app:layout_constraintStart_toStartOf="parent"

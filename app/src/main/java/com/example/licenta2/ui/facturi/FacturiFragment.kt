@@ -8,10 +8,16 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAcasaBinding
 import com.example.licenta2.databinding.FragmentFacturiBinding
+import com.example.licenta2.persistence.database.AppDatabase
+import com.example.licenta2.persistence.entities.Client
+import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.ui.acasa.AcasaViewModel
+import com.example.licenta2.ui.clienti.ClientAdaptor
 
 
 class FacturiFragment : Fragment() {
@@ -19,22 +25,41 @@ class FacturiFragment : Fragment() {
     private var _binding: FragmentFacturiBinding? = null;
     private val binding get() = _binding!!
 
+    private lateinit var appDatabase: AppDatabase
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var facturaAdaptor: FacturaAdaptor
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val facturiViewModel = ViewModelProvider(this).get(FacturiViewModel::class.java)
+        facturiViewModel = ViewModelProvider(this).get(FacturiViewModel::class.java)
         _binding = FragmentFacturiBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+
+        facturiViewModel.initDatabase(requireContext())
+
+        // RV
+        recyclerView = binding.rvFacturi
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        facturaAdaptor = FacturaAdaptor(requireContext(), emptyList())
+        recyclerView.adapter = facturaAdaptor
+        facturiViewModel.getAllFacturi().observe(viewLifecycleOwner, Observer { facturaList ->
+            val facturaListNormal: List<Factura> = facturaList
+            facturaAdaptor = FacturaAdaptor(requireContext(), facturaListNormal)
+            recyclerView.adapter = facturaAdaptor
+        })
+
 
 
         binding.butonAdaugaFactura.setOnClickListener {
             findNavController().navigate(R.id.action_facturiFragment_to_adaugaFactura)
         }
         facturiViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.textFacturi.text = it
+            //binding.textFacturi.text = it
         })
         return root
     }

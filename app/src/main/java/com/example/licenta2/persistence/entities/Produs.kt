@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "produse")
-data class Produs(
+open class Produs(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "denumire") val denumire: String?,
     @ColumnInfo(name = "unitateDeMasura") val unitateDeMasura: String?,

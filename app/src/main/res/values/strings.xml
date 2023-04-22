@@ -20,6 +20,19 @@
     <string name="menu_registru">Registru</string>
     <string name="menu_previziuni">Previziuni</string>
     <string name="menu_setari">Setari</string>
+    <string name="picture_prod">picture_prod</string>
+    <string name="nume_produs">nume_produs</string>
+    <string name="unitate_de_masura">unitate de masura</string>
+    <string name="pret_fara_tva">pret fara tva</string>
+    <string name="pret_cu_tva">pret cu tva</string>
+    <string name="cota_tva">cota tva</string>
+    <string name="nume_client">nume client</string>
+    <string name="serie">serie</string>
+    <string name="data">data</string>
+    <string name="data_scadenta">data scadenta</string>
+    <string name="data_incasarii">data incasarii</string>
+    <string name="status">status</string>
+    <string name="suma">suma</string>
 
     <string-array name="spinnerCotaTVA_items">
         <item>1</item>
@@ -34,9 +47,9 @@
     </string-array>
 
     <string-array name="spinnerTermenDePlata_items">
-        <item>11111</item>
-        <item>222222</item>
-        <item>333333</item>
+        <item>7</item>
+        <item>14</item>
+        <item>21</item>
     </string-array>
 
     <string-array name="spinnerTipDocument_items">

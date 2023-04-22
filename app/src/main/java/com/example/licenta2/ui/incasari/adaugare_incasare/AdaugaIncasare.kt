@@ -2,6 +2,7 @@ package com.example.licenta2.ui.incasari.adaugare_incasare
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,18 @@ import com.example.licenta2.databinding.FragmentAdaugaIncasareBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Incasare
 import com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientViewModel
+import com.example.licenta2.ui.showSnackbar
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
+
+
+fun currentDate(): String {
+    val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    return LocalDate.now().format(dateFormatter)
+}
+
+
 
 class AdaugaIncasare : Fragment() {
     private  lateinit var adaugaIncasareViewModel: AdaugaIncasareViewModel
@@ -66,7 +78,8 @@ class AdaugaIncasare : Fragment() {
         }
 
 
-        val dataIncasareEditText = root.findViewById<EditText>(R.id.editTextDataIncasare)
+        var dataIncasareEditText = root.findViewById<EditText>(R.id.editTextDataIncasare)
+        dataIncasareEditText.text = Editable.Factory.getInstance().newEditable(currentDate())
 
         dataIncasareEditText.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -89,27 +102,43 @@ class AdaugaIncasare : Fragment() {
     }
 
     private fun writeData() {
-        val numarIncasare = binding.editTextNumarIncasare.text.toString()
-        val client = binding.autoCompleteNumeClient.text.toString()
-        val tipDocument = binding.spinnerTipDocument.selectedItem.toString()
-        val valoare = binding.editTextValoareIncasare.text.toString()
-        val dataIncasare = binding.editTextDataIncasare.text.toString()
-        val reprezentand = binding.editTextReprezentandIncasare.text.toString()
-
-        if(numarIncasare.isNotEmpty())
+        var valid = true
+        val numarIncasare = binding.editTextNumarIncasare
+        if(numarIncasare.text.toString().isBlank())
         {
+            numarIncasare.error = "Precizati numarul incasarii"
+            valid = false
+        }
+
+        val client = binding.autoCompleteNumeClient
+        val tipDocument = binding.spinnerTipDocument.selectedItem.toString()
+        val valoare = binding.editTextValoareIncasare
+        if(valoare.text.toString().isBlank())
+        {
+            valoare.error = "Precizati valoarea"
+            valid = false
+        }
+
+        val dataIncasare = binding.editTextDataIncasare
+        if(dataIncasare.text.toString().isBlank())
+        {
+            dataIncasare.error = "Inserati data"
+            valid = false
+        }
+        val reprezentand = binding.editTextReprezentandIncasare
+
+        if(valid) {
             val incasare = Incasare(
-                numarIncasare = numarIncasare.toInt(),
-                clientIncasare = client,
+                numarIncasare = numarIncasare.text.toString().toInt(),
+                clientIncasare = client.text.toString(),
                 tipDocument = tipDocument,
-                valoare = valoare.toDouble(),
-                dataIncasare = dataIncasare,
-                reprezentand = reprezentand
+                valoare = valoare.text.toString().toDouble(),
+                dataIncasare = dataIncasare.text.toString(),
+                reprezentand = reprezentand.text.toString()
             )
             adaugaIncasareViewModel.insertIncasare(incasare)
-            Toast.makeText(requireContext(), "incasare", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(requireContext(), "ohh nooo", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(requireContext(), valid, Toast.LENGTH_SHORT).show()
+            view?.let { showSnackbar(requireContext(), it, "Incasare introdusa cu succes!", false) }
         }
     }
 

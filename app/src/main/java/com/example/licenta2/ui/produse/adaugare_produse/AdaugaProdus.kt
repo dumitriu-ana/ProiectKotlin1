@@ -1,5 +1,6 @@
 package com.example.licenta2.ui.produse.adaugare_produse
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,9 +15,34 @@ import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAdaugaProdusBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Produs
+import com.example.licenta2.ui.showSnackbar
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
+
+
+fun checkDenuire(name: String): Boolean {
+    val regex = Regex("^[a-zA-Z0-9 ]+$")
+    return regex.matches(name)
+}
+fun checkUM(um: String): Boolean {
+    return um.isNotBlank() && um.matches(Regex("^[a-zA-Z\\s]+$"))
+}
+
+
+//fun showSnackbar(context: Context, view: View, message: String, isError: Boolean) {
+//    val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+//    val snackbarView = snackbar.view
+//    if (isError) {
+//        snackbarView.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
+//    } else {
+//        snackbarView.setBackgroundColor(ContextCompat.getColor(context, R.color.green))
+//    }
+//    snackbar.show()
+//}
+
 
 class AdaugaProdus : Fragment() {
     private lateinit var adaugaProdusViewModel: AdaugaProdusViewModel
@@ -71,33 +97,47 @@ class AdaugaProdus : Fragment() {
 
 
     fun writeData() {
-        val denumire = binding.editTextDenumireProdus.text.toString()
-        val unitateDeMasura = binding.editTextUnitateMasura.text.toString()
-        val pret = binding.editTextPret.text.toString()
+        var valid=true
+        //val denumire = binding.editTextDenumireProdus.text.toString()
+        val campDenumire = binding.editTextDenumireProdus
+        if(!checkDenuire(campDenumire.text.toString()))
+        {
+            campDenumire.error = "Denumirea trebuie completata"
+            valid = false
+        }
+        val unitateDeMasura = binding.editTextUnitateMasura
+        //val unitateDeMasura = binding.editTextUnitateMasura.text.toString()
+        if(!checkUM(unitateDeMasura.text.toString()))
+        {
+            unitateDeMasura.error = "Adauga unitate de masura"
+            valid = false
+        }
+        val pret = binding.editTextPret
+       // val pret = binding.editTextPret.text.toString()
+        if(pret.text.toString().isBlank() || pret.text.toString().toDouble()==0.0)
+        {
+            pret.error = "Adauga pretul produsului"
+            valid = false
+        }
 
         val cotaTVA = binding.spinnerCotaTVA.selectedItem.toString()
         val contineTVA = binding.checkBoxContineTVA.isChecked
-
-        if (denumire.isNotEmpty() && unitateDeMasura.isNotEmpty()) {
+        if (valid) {
             val produs = Produs(
-                denumire = denumire,
-                unitateDeMasura = unitateDeMasura,
-                pret = pret.toDouble(),
+                denumire = campDenumire.text.toString(),
+                unitateDeMasura = unitateDeMasura.text.toString(),
+                pret = pret.text.toString().toDouble(),
                 cotaTVA = cotaTVA.toDouble(),
                 contineTVA = contineTVA
             )
             adaugaProdusViewModel.insertProdus(produs)
-
             binding.editTextDenumireProdus.text.clear()
             binding.editTextUnitateMasura.text.clear()
             binding.editTextPret.text.clear()
-            Toast.makeText(requireContext(), "Produs adăugat cu succes!", Toast.LENGTH_SHORT).show()
-
-        } else {
-            Toast.makeText(requireContext(), "no!", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(requireContext(), valid, Toast.LENGTH_SHORT).show()
+            view?.let { showSnackbar(requireContext(), it, "Produs introdus cu succes!", false) }
 
         }
-
     }
 
     fun readData() {
