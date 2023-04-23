@@ -11,7 +11,7 @@ import com.example.licenta2.persistence.entities.Produs
 
 @Dao
 interface IncasareDao {
-    @Query("SELECT * FROM incasari")
+    @Query("SELECT * FROM incasari order by dataIncasare desc")
     fun getAllIncasari(): LiveData<List<Incasare>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -9,7 +9,7 @@ import com.example.licenta2.persistence.entities.Produs
 
 @Dao
 interface ProdusDao {
-    @Query("SELECT * FROM produse")
+    @Query("SELECT * FROM produse order by denumire")
     fun getAllProduse(): LiveData<List<Produs>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -10,7 +10,7 @@ import com.example.licenta2.persistence.entities.Produs
 
 @Dao
 interface FacturaDao {
-    @Query("SELECT * FROM facturi")
+    @Query("SELECT * FROM facturi order by data desc")
     fun getAllFacturi(): LiveData<List<Factura>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

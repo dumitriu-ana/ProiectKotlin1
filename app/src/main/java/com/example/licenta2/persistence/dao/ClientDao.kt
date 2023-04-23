@@ -9,7 +9,7 @@ import com.example.licenta2.persistence.entities.Client
 
 @Dao
 interface ClientDao {
-    @Query("SELECT * FROM clienti")
+    @Query("SELECT * FROM clienti order by denumire")
     fun getAllClienti(): LiveData<List<Client>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
