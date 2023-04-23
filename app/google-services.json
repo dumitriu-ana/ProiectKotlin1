@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267572322691",
+    "project_id": "liliana-336ff",
+    "storage_bucket": "liliana-336ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267572322691:android:e5d6fd0be8c4bfa483d6b6",
+        "android_client_info": {
+          "package_name": "com.example.licenta2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267572322691-u6lgsum0pjca8tqluuoq0ghqdojidi03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVIyfhnIFVWwDg41q6cNNH-iRFx2PRLTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267572322691-1rjfeeuih9qmeb9bb6rgvtorpf2r430l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

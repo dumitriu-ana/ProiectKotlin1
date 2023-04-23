@@ -84,5 +84,15 @@
         android:name="com.example.licenta2.ui.produse.adaugare_produse.AdaugaProdus"
         android:label="Adaugare Produs"
         tools:layout="@layout/fragment_adauga_produs" />
+    <activity
+        android:id="@+id/firebaseAuth"
+        android:name="com.example.licenta2.FirebaseAuth"
+        android:label="activity_firebase_auth"
+        tools:layout="@layout/activity_firebase_auth" />
+    <activity
+        android:id="@+id/firebaseLogIn"
+        android:name="com.example.licenta2.FirebaseLogIn"
+        android:label="activity_firebase_log_in"
+        tools:layout="@layout/activity_firebase_log_in" />
 
 </navigation>

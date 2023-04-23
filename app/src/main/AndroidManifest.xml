@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Licenta2.MyTheme"
         tools:targetApi="31">
         <activity
+            android:name=".FirebaseLogIn"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".FirebaseAuth"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
