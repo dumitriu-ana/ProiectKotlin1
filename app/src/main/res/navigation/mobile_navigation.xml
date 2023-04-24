@@ -86,7 +86,7 @@
         tools:layout="@layout/fragment_adauga_produs" />
     <activity
         android:id="@+id/firebaseAuth"
-        android:name="com.example.licenta2.FirebaseAuth"
+        android:name="com.example.licenta2.FirebaseInregistrare"
         android:label="activity_firebase_auth"
         tools:layout="@layout/activity_firebase_auth" />
     <activity

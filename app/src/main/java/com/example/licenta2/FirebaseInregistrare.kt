@@ -11,7 +11,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.FirebaseApp
 
-class FirebaseAuth : AppCompatActivity() {
+class FirebaseInregistrare : AppCompatActivity() {
 
     private lateinit var inregistrare_mail: EditText
     private lateinit var inregistrare_parola1: EditText

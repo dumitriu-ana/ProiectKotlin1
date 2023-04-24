@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".FirebaseAuth"
+            android:name=".FirebaseInregistrare"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
