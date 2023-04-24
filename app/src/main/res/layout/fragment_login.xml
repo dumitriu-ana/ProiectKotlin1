@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="#FFF7DA"
+            android:background="@color/my_bg_orange_login"
 
             android:orientation="vertical"
             android:padding="20dp"

@@ -11,6 +11,7 @@
     <color name="red">#FF0000</color>
     <color name="green">#00C853</color>
     <color name="my_bg_orange">#FFEFD0</color>
+    <color name="my_bg_orange_login">#FFF7DA</color>
     <color name="btn_green">#4CAF50</color>
 
     <color name="white_2">#F6F1E9</color>
