@@ -1,9 +1,12 @@
 package com.example.licenta2
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.FirebaseApp
@@ -17,6 +20,7 @@ class FirebaseAuth : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firebase_auth)
@@ -57,5 +61,11 @@ class FirebaseAuth : AppCompatActivity() {
                     }
                 }
         }
+
+        val btnConectareContExistent = findViewById<TextView>(R.id.inregistrare_login)
+        btnConectareContExistent.setOnClickListener {
+            val intent = Intent(this, FirebaseAuth::class.java)
+            startActivity(intent)
+        }
     }
-}
+    }
