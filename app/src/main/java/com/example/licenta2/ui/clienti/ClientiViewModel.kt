@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
+import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.persistence.entities.Produs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,8 @@ class ClientiViewModel : ViewModel() {
     }
 
 
-    val clienti = appDatabase.clientDao().getAllClienti()
+    fun getAllClienti(): LiveData<List<Client>> {
+        return appDatabase.clientDao().getAllClienti()
+    }
 
 }

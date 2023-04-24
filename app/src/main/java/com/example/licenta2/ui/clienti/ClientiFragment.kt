@@ -15,6 +15,7 @@ import com.example.licenta2.databinding.FragmentAcasaBinding
 import com.example.licenta2.databinding.FragmentClientiBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
+import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.ui.acasa.AcasaViewModel
 
 class ClientiFragment : Fragment() {
@@ -41,8 +42,9 @@ class ClientiFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         clientAdaptor = ClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
-        clientiViewModel.clienti.observe(viewLifecycleOwner, Observer { clientList ->
-            clientAdaptor = ClientAdaptor(requireContext(), clientList)
+        clientiViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
+            val clientListNormal: List<Client> = clientList
+            clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
             recyclerView.adapter = clientAdaptor
         })
         binding.butonAdaugaClient.setOnClickListener {
