@@ -1,11 +1,14 @@
 package com.example.licenta2.persistence.entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.versionedparcelable.VersionedParcelize
+
 
 @Entity(tableName = "produse")
-open class Produs(
+data class Produs(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "denumire") val denumire: String?,
     @ColumnInfo(name = "unitateDeMasura") val unitateDeMasura: String?,

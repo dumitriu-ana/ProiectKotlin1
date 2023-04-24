@@ -332,6 +332,18 @@
                 app:layout_constraintStart_toEndOf="@+id/textViewTermenDePlata"
                 app:layout_constraintTop_toBottomOf="@+id/view5" />
 
+            <Button
+                android:id="@+id/factura_adaugaClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="286dp"
+                android:text="+ Adauga Client"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewClientFactura" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

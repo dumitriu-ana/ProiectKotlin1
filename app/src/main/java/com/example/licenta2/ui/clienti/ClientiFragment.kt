@@ -41,9 +41,8 @@ class ClientiFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         clientAdaptor = ClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
-        clientiViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
-            val clientListNormal: List<Client> = clientList
-            clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
+        clientiViewModel.clienti.observe(viewLifecycleOwner, Observer { clientList ->
+            clientAdaptor = ClientAdaptor(requireContext(), clientList)
             recyclerView.adapter = clientAdaptor
         })
         binding.butonAdaugaClient.setOnClickListener {

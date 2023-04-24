@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation_auth"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.licenta2.ui.autentificare.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_inregistrareFragment"
+            app:destination="@id/inregistrareFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inregistrareFragment"
+        android:name="com.example.licenta2.ui.autentificare.InregistrareFragment"
+        android:label="InregistrareFragment" />
+</navigation>

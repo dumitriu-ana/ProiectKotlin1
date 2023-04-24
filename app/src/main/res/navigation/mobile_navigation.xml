@@ -11,7 +11,8 @@
         android:id="@+id/acasaFragment"
         android:name="com.example.licenta2.ui.acasa.AcasaFragment"
         android:label="Acasa"
-        tools:layout="@layout/fragment_acasa" />
+        tools:layout="@layout/fragment_acasa">
+    </fragment>
 
     <fragment
         android:id="@+id/facturiFragment"
@@ -84,15 +85,12 @@
         android:name="com.example.licenta2.ui.produse.adaugare_produse.AdaugaProdus"
         android:label="Adaugare Produs"
         tools:layout="@layout/fragment_adauga_produs" />
+
+
     <activity
-        android:id="@+id/firebaseAuth"
-        android:name="com.example.licenta2.FirebaseInregistrare"
-        android:label="activity_firebase_auth"
-        tools:layout="@layout/activity_firebase_auth" />
-    <activity
-        android:id="@+id/firebaseLogIn"
-        android:name="com.example.licenta2.FirebaseLogIn"
-        android:label="activity_firebase_log_in"
-        tools:layout="@layout/activity_firebase_log_in" />
+        android:id="@+id/mainActivity"
+        android:name="com.example.licenta2.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
 
 </navigation>

@@ -1,8 +1,11 @@
 package com.example.licenta2.persistence.entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
+
 
 @Entity(tableName = "clienti")
 data class Client(

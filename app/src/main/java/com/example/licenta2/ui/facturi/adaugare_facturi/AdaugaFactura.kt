@@ -189,6 +189,8 @@ class AdaugaFactura : Fragment() {
 
 
 
+
+
             binding.butonSalvareFactura.setOnClickListener {
                 writeData()
             }
