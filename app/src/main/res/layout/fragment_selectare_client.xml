@@ -5,26 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/my_bg_orange"
-    android:padding="50dp"
     tools:context=".ui.facturi.adaugare_facturi.selectie.SelectareClientFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_selectareClient"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSelectareClient"
-            android:layout_width="95dp"
-            android:layout_height="195dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="129dp"
-            android:layout_marginEnd="314dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        android:layout_height="match_parent"/>
+</androidx.appcompat.widget.LinearLayoutCompat>
 
 </FrameLayout>

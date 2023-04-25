@@ -51,9 +51,6 @@ class SelectareClientFragment : Fragment() {
             recyclerView.adapter = clientAdaptor
         })
 
-        selectareClientViewModel.text.observe(viewLifecycleOwner, Observer {
-            appDatabase = AppDatabase.getDatabase(requireContext())
-        })
         return root
 
     }
