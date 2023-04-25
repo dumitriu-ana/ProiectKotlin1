@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentInregistrareBinding
 
@@ -26,6 +27,10 @@ class InregistrareFragment : Fragment() {
         _binding = FragmentInregistrareBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        binding.inregistrareLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_inregistrareFragment_to_loginFragment)
+        }
 
         return root
     }

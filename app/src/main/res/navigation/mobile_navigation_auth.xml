@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/inregistrareFragment"
         android:name="com.example.licenta2.ui.autentificare.InregistrareFragment"
-        android:label="InregistrareFragment" />
+        android:label="InregistrareFragment" >
+        <action
+            android:id="@+id/action_inregistrareFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

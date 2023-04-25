@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_facturiFragment_to_adaugaFactura"
             app:destination="@id/adaugaFactura" />
+        <action
+            android:id="@+id/action_facturiFragment_to_selectareClientFragment"
+            app:destination="@id/selectareClientFragment" />
+        <action
+            android:id="@+id/action_facturiFragment_to_selectareProdusFragment"
+            app:destination="@id/selectareProdusFragment" />
     </fragment>
     <fragment
         android:id="@+id/incasariFragment"
@@ -92,5 +98,15 @@
         android:name="com.example.licenta2.MainActivity"
         android:label="app_bar_main"
         tools:layout="@layout/app_bar_main" />
+    <fragment
+        android:id="@+id/selectareProdusFragment"
+        android:name="com.example.licenta2.ui.facturi.adaugare_facturi.selectie.SelectareProdusFragment"
+        android:label="fragment_selectare_produs"
+        tools:layout="@layout/fragment_selectare_produs" />
+    <fragment
+        android:id="@+id/selectareClientFragment"
+        android:name="com.example.licenta2.ui.facturi.adaugare_facturi.selectie.SelectareClientFragment"
+        android:label="fragment_selectare_client"
+        tools:layout="@layout/fragment_selectare_client" />
 
 </navigation>

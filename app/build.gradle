@@ -52,6 +52,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.5.1")
     implementation 'com.google.firebase:firebase-auth-ktx:21.3.0'
     implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor("androidx.room:room-compiler:2.5.1")
 
     kapt "androidx.room:room-compiler:2.5.1"

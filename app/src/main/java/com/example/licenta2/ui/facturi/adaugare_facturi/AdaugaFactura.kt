@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAdaugaFacturaBinding
 import com.example.licenta2.persistence.database.AppDatabase
@@ -58,6 +59,11 @@ class AdaugaFactura : Fragment() {
 
         adaugaFacturaViewModel.text.observe(viewLifecycleOwner, Observer {
            // binding.textAdaugaFactura.text = it
+
+//            binding.facturaAdaugaClient.setOnClickListener {
+//                findNavController().navigate(R.id.action_facturiFragment_to_selectareClientFragment)
+//            }
+
 
 
             val spinnerClientFactura = root.findViewById<Spinner>(R.id.spinnerClientFactura)
