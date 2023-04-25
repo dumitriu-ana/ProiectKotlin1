@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
@@ -42,13 +43,19 @@ class SelectareClientFragment : Fragment() {
         clientAdaptor = ClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
 
+        //Toast.makeText(requireContext(), "Selectare client", Toast.LENGTH_SHORT).show()
+
         selectareClientViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
             val clientListNormal: List<Client> = clientList
             clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
             recyclerView.adapter = clientAdaptor
+
+            Toast.makeText(requireContext(), "Selectare client" + clientListNormal[0].toString(), Toast.LENGTH_LONG).show()
         })
 
-
+        selectareClientViewModel.text.observe(viewLifecycleOwner, Observer {
+            appDatabase = AppDatabase.getDatabase(requireContext())
+        })
         return root
 
     }

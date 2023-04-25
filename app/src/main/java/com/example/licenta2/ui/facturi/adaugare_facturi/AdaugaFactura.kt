@@ -60,9 +60,9 @@ class AdaugaFactura : Fragment() {
         adaugaFacturaViewModel.text.observe(viewLifecycleOwner, Observer {
            // binding.textAdaugaFactura.text = it
 
-//            binding.facturaAdaugaClient.setOnClickListener {
-//                findNavController().navigate(R.id.action_facturiFragment_to_selectareClientFragment)
-//            }
+            binding.facturaAdaugaClient.setOnClickListener {
+                findNavController().navigate(R.id.action_adaugaFactura_to_selectareClientFragment)
+            }
 
 
 

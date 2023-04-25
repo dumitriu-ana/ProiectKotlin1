@@ -18,7 +18,8 @@ import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.ui.acasa.AcasaViewModel
 
-class ClientiFragment : Fragment() {
+class
+ClientiFragment : Fragment() {
     private lateinit var clientiViewModel: ClientiViewModel
     private var _binding: FragmentClientiBinding? = null;
     private val binding get() = _binding!!
