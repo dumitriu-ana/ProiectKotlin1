@@ -16,6 +16,9 @@ import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.ui.clienti.ClientAdaptor
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.licenta2.ui.clienti.ClientiViewModel
+
 class SelectareClientFragment : Fragment() {
 
     private lateinit var selectareClientViewModel: SelectareClientViewModel
@@ -32,25 +35,20 @@ class SelectareClientFragment : Fragment() {
     ): View? {
 
         selectareClientViewModel = ViewModelProvider(this).get(SelectareClientViewModel::class.java)
-        _binding = FragmentSelectareClientBinding.inflate(inflater, container,false)
-
+        _binding = FragmentSelectareClientBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         selectareClientViewModel.initDatabase(requireContext())
 
+        // RV
         recyclerView = binding.rvSelectareClient
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         clientAdaptor = ClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
-
-        //Toast.makeText(requireContext(), "Selectare client", Toast.LENGTH_SHORT).show()
-
         selectareClientViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
             val clientListNormal: List<Client> = clientList
             clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
             recyclerView.adapter = clientAdaptor
-
-            Toast.makeText(requireContext(), "Selectare client" + clientListNormal[0].toString(), Toast.LENGTH_LONG).show()
         })
 
         selectareClientViewModel.text.observe(viewLifecycleOwner, Observer {

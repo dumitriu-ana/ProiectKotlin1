@@ -63,6 +63,9 @@ class AdaugaFactura : Fragment() {
             binding.facturaAdaugaClient.setOnClickListener {
                 findNavController().navigate(R.id.action_adaugaFactura_to_selectareClientFragment)
             }
+            binding.buttonAdaugaProdusFactura.setOnClickListener {
+                findNavController().navigate(R.id.action_adaugaFactura_to_selectareProdusFragment)
+            }
 
 
 
@@ -190,9 +193,6 @@ class AdaugaFactura : Fragment() {
 
                 override fun onNothingSelected(parent: AdapterView<*>) {}
             }
-
-
-
 
 
 

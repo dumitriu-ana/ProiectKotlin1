@@ -5,9 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.facturi.adaugare_facturi.selectie.SelectareProdusFragment">
 
-    <TextView
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_SelectareProdus"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
 
 </FrameLayout>
