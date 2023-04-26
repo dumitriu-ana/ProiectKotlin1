@@ -27,7 +27,7 @@ class SelectareClientFragment : Fragment() {
 
     private lateinit var appDatabase: AppDatabase
     private lateinit var recyclerView: RecyclerView
-    private lateinit var clientAdaptor: ClientAdaptor
+    private lateinit var clientAdaptor: FClientAdaptor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,11 +43,11 @@ class SelectareClientFragment : Fragment() {
         // RV
         recyclerView = binding.rvSelectareClient
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        clientAdaptor = ClientAdaptor(requireContext(), emptyList())
+        clientAdaptor = FClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
         selectareClientViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
             val clientListNormal: List<Client> = clientList
-            clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
+            clientAdaptor = FClientAdaptor(requireContext(), clientListNormal)
             recyclerView.adapter = clientAdaptor
         })
 

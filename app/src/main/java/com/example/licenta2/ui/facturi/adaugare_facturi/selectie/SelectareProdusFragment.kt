@@ -28,7 +28,7 @@ class SelectareProdusFragment : Fragment() {
 
     private lateinit var appDatabase: AppDatabase
     private lateinit var recyclerView: RecyclerView
-    private lateinit var produsAdaptor: ProdusAdaptor
+    private lateinit var produsAdaptor: FProdusAdaptor
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,11 +46,11 @@ class SelectareProdusFragment : Fragment() {
         // RV
           recyclerView = binding.rvSelectareProdus
           recyclerView.layoutManager = LinearLayoutManager(requireContext())
-         produsAdaptor = ProdusAdaptor(requireContext(), emptyList())
+         produsAdaptor = FProdusAdaptor(requireContext(), emptyList())
         recyclerView.adapter = produsAdaptor
         selectareProdusViewModel.getAllProduse().observe(viewLifecycleOwner, Observer { produseList ->
             val produseListNormal: List<Produs> = produseList
-            produsAdaptor = ProdusAdaptor(requireContext(), produseListNormal)
+            produsAdaptor = FProdusAdaptor(requireContext(), produseListNormal)
             recyclerView.adapter = produsAdaptor
         })
 
