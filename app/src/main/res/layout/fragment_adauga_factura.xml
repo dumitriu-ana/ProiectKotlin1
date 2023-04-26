@@ -203,14 +203,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.82"
                 app:layout_constraintStart_toEndOf="@+id/textViewClientFactura"
-                app:layout_constraintTop_toBottomOf="@+id/textViewClientFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_adaugare_factura_client" />
 
             <EditText
                 android:id="@+id/editTextAdresaFactura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -218,7 +217,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewAdresaLivrare" />
+                app:layout_constraintTop_toBottomOf="@+id/factura_adaugaClient" />
 
             <EditText
                 android:id="@+id/editTextData"
@@ -337,10 +336,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="108dp"
-                android:layout_marginTop="3dp"
                 android:layout_marginEnd="286dp"
                 android:text="+ Adauga Client"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.401"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerClientFactura" />
+
+            <TextView
+                android:id="@+id/tv_adaugare_factura_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="25dp"
+                android:text="denumire client"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewClientFactura" />
 

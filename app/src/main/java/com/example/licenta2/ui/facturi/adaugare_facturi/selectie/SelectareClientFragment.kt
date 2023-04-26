@@ -44,6 +44,7 @@ class SelectareClientFragment : Fragment() {
         recyclerView = binding.rvSelectareClient
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         clientAdaptor = FClientAdaptor(requireContext(), emptyList())
+
         recyclerView.adapter = clientAdaptor
         selectareClientViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
             val clientListNormal: List<Client> = clientList
