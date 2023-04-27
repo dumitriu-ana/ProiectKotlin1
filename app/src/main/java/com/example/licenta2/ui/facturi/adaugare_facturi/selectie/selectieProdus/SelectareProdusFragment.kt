@@ -1,4 +1,4 @@
-package com.example.licenta2.ui.facturi.adaugare_facturi.selectie
+package com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieProdus
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,19 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.licenta2.R
-import com.example.licenta2.databinding.FragmentAdaugaProdusBinding
-import com.example.licenta2.databinding.FragmentFacturiBinding
 import com.example.licenta2.databinding.FragmentSelectareProdusBinding
 import com.example.licenta2.persistence.database.AppDatabase
-import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.persistence.entities.Produs
-import com.example.licenta2.ui.facturi.FacturaAdaptor
-import com.example.licenta2.ui.facturi.FacturiViewModel
-import com.example.licenta2.ui.produse.ProdusAdaptor
 
 class SelectareProdusFragment : Fragment() {
     private lateinit var selectareProdusViewModel: SelectareProdusViewModel

@@ -1,4 +1,4 @@
-package com.example.licenta2.ui.facturi.adaugare_facturi.selectie
+package com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
-import com.example.licenta2.persistence.entities.Factura
 
 class SelectareClientViewModel : ViewModel() {
 

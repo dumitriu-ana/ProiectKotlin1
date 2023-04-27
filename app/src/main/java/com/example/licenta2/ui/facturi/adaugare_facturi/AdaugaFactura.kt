@@ -60,6 +60,10 @@ class AdaugaFactura : Fragment() {
         adaugaFacturaViewModel.text.observe(viewLifecycleOwner, Observer {
            // binding.textAdaugaFactura.text = it
 
+
+
+         //   val clientDenumire: TextView = root.findViewById(R.id.tv_denumire_client)
+
             binding.facturaAdaugaClient.setOnClickListener {
                 findNavController().navigate(R.id.action_adaugaFactura_to_selectareClientFragment)
             }

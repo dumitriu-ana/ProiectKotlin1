@@ -1,4 +1,4 @@
-package com.example.licenta2.ui.facturi.adaugare_facturi.selectie
+package com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieProdus
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,11 +13,11 @@ import com.example.licenta2.persistence.entities.Produs
 class FProdusAdaptor(private val context: Context, private var produse: List<Produs>) :
     RecyclerView.Adapter<FProdusAdaptor.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FProdusAdaptor.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lv_row_factura_produs, parent, false)
         return ViewHolder(itemView)
     }
-    override fun onBindViewHolder(holder: FProdusAdaptor.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produs = produse[position]
         holder.prodNameTextView.text = produs.denumire
         holder.prodPret.text = produs.pret.toString()

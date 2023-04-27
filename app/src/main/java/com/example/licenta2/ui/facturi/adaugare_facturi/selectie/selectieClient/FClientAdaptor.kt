@@ -1,4 +1,4 @@
-package com.example.licenta2.ui.facturi.adaugare_facturi.selectie
+package com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,19 +8,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Client
-import com.example.licenta2.ui.clienti.ClientAdaptor
+import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.CellClickListener
 
-class FClientAdaptor (private val context: Context, private var clients: List<Client>) :
+class FClientAdaptor (private val context: Context,
+                      private var clients: List<Client>,
+                      private val cellClickListener: CellClickListener
+) :
 RecyclerView.Adapter<FClientAdaptor.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FClientAdaptor.ViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lv_row_factura_client, parent, false)
         return ViewHolder(itemView)
     }
-    override fun onBindViewHolder(holder: FClientAdaptor.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val client = clients[position]
         holder.clientDenumireTextView.text = client.denumire
         holder.clientCUITextView.text=client.regCom
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickListener(client.denumire.toString())
+        }
     }
 
     override fun getItemCount(): Int {

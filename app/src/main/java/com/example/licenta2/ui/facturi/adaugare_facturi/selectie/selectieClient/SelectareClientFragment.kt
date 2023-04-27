@@ -10,16 +10,21 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
-import com.example.licenta2.databinding.FragmentClientiBinding
 import com.example.licenta2.databinding.FragmentSelectareClientBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
-import com.example.licenta2.ui.clienti.ClientAdaptor
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.licenta2.ui.clienti.ClientiViewModel
+import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient.FClientAdaptor
+import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient.SelectareClientViewModel
 
-class SelectareClientFragment : Fragment() {
+interface CellClickListener {
+    fun onCellClickListener(data:String)
+}
+
+
+
+class SelectareClientFragment : Fragment(), CellClickListener {
 
     private lateinit var selectareClientViewModel: SelectareClientViewModel
     private var _binding: FragmentSelectareClientBinding? = null;
@@ -28,6 +33,12 @@ class SelectareClientFragment : Fragment() {
     private lateinit var appDatabase: AppDatabase
     private lateinit var recyclerView: RecyclerView
     private lateinit var clientAdaptor: FClientAdaptor
+
+
+
+    //private lateinit var textView:TextView
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,14 +54,20 @@ class SelectareClientFragment : Fragment() {
         // RV
         recyclerView = binding.rvSelectareClient
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        clientAdaptor = FClientAdaptor(requireContext(), emptyList())
+        clientAdaptor = FClientAdaptor(requireContext(), emptyList(), this)
 
         recyclerView.adapter = clientAdaptor
         selectareClientViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
             val clientListNormal: List<Client> = clientList
-            clientAdaptor = FClientAdaptor(requireContext(), clientListNormal)
+            clientAdaptor = FClientAdaptor(requireContext(), clientListNormal, this)
             recyclerView.adapter = clientAdaptor
         })
+
+
+
+      //  val fragment = requireActivity().supportFragmentManager.findFragmentByTag("")
+
+
 
         return root
 
@@ -59,6 +76,13 @@ class SelectareClientFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCellClickListener(data: String) {
+        Toast.makeText(requireContext(),"Cell clicked" + data, Toast.LENGTH_SHORT).show()
+       //  textView = requireView().findViewById<TextView>(R.id.tv_denumire_client)
+      //   textView.text = "Noul text"
+        findNavController().navigate(R.id.action_selectareClientFragment_to_adaugaFactura)
     }
 
 }
