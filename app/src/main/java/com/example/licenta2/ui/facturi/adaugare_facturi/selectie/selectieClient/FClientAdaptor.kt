@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Client
-import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.CellClickListener
+import com.example.licenta2.ui.facturi.adaugare_facturi.CellClickListener
+
 
 class FClientAdaptor (private val context: Context,
                       private var clients: List<Client>,
@@ -26,7 +27,7 @@ RecyclerView.Adapter<FClientAdaptor.ViewHolder>() {
         holder.clientDenumireTextView.text = client.denumire
         holder.clientCUITextView.text=client.regCom
         holder.itemView.setOnClickListener {
-            cellClickListener.onCellClickListener(client.denumire.toString())
+            cellClickListener.onCellClickListener(client)
         }
     }
 

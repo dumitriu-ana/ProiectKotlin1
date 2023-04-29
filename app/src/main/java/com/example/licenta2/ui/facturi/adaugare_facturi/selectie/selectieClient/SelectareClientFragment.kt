@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
@@ -15,12 +17,11 @@ import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.example.licenta2.ui.facturi.adaugare_facturi.CellClickListener
 import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient.FClientAdaptor
 import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieClient.SelectareClientViewModel
 
-interface CellClickListener {
-    fun onCellClickListener(data:String)
-}
+
 
 
 
@@ -36,8 +37,8 @@ class SelectareClientFragment : Fragment(), CellClickListener {
 
 
 
-    //private lateinit var textView:TextView
-
+    //sharedvm
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -78,11 +79,9 @@ class SelectareClientFragment : Fragment(), CellClickListener {
         _binding = null
     }
 
-    override fun onCellClickListener(data: String) {
-        Toast.makeText(requireContext(),"Cell clicked" + data, Toast.LENGTH_SHORT).show()
-       //  textView = requireView().findViewById<TextView>(R.id.tv_denumire_client)
-      //   textView.text = "Noul text"
-        findNavController().navigate(R.id.action_selectareClientFragment_to_adaugaFactura)
+    override fun onCellClickListener(data: Client) {
+       sharedViewModel.selectareClient(data)
+        findNavController().popBackStack()
     }
 
 }

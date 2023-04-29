@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Produs
+import com.example.licenta2.ui.facturi.adaugare_facturi.ProdusClickListener
 
 
-class FProdusAdaptor(private val context: Context, private var produse: List<Produs>) :
+class FProdusAdaptor(private val context: Context, private var produse: List<Produs>,
+                     private val produsClickListener: ProdusClickListener) :
     RecyclerView.Adapter<FProdusAdaptor.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,6 +23,11 @@ class FProdusAdaptor(private val context: Context, private var produse: List<Pro
         val produs = produse[position]
         holder.prodNameTextView.text = produs.denumire
         holder.prodPret.text = produs.pret.toString()
+
+        holder.itemView.setOnClickListener {
+            it.setBackgroundColor(context.getColor(R.color.btn_orange))
+            produsClickListener.onProdusClickListener(produs)
+        }
     }
 
     override fun getItemCount(): Int {
