@@ -10,7 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="822dp">
 
 
         <Button
@@ -25,6 +25,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.039" />
 
+        <View
+            android:id="@+id/baraInceputClienti"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/butonAdaugaClient" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvClienti"
             android:layout_width="match_parent"
@@ -33,10 +44,25 @@
             android:layout_marginBottom="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/butonAdaugaClient"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintTop_toBottomOf="@+id/baraInceputClienti"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/baraFinalClienti"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/black"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvClienti"
+            app:layout_constraintVertical_bias="0.019" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
