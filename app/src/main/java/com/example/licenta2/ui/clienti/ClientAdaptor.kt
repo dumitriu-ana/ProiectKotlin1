@@ -21,12 +21,13 @@ class ClientAdaptor(private val context: Context, private var clients: List<Clie
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val client = clients[position]
 
+        val adresaTotal = client.judet + ", " + client.localitate + ", " + client.adresa
         holder.clientDenumireTextView.text = client.denumire
         holder.clientCifTextView.text = client.cif
         holder.clientNumeTextView.text = client.nume
         holder.clientMailTextView.text = client.email
         holder.clientTelefonTextView.text = client.telefon
-        holder.clientAdresaTextView.text = client.adresa
+        holder.clientAdresaTextView.text = adresaTotal
         holder.clientRegistrulComertuluiTextView.text = client.regCom
     }
 

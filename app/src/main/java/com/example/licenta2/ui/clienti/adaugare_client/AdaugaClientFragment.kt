@@ -79,6 +79,10 @@ class AdaugaClientFragment : Fragment() {
         val emailRegex = Regex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
         return email.isBlank() || emailRegex.matches(email)
     }
+    fun checkJudet(input: String): Boolean {
+        val regex = Regex("^[a-zA-Z][a-zA-Z0-9\\s-.,]*\$")
+        return regex.matches(input.trim())
+    }
 
 
 
@@ -116,13 +120,20 @@ class AdaugaClientFragment : Fragment() {
             valid = false
         }
         val judet = binding.editTextJudet
-        if(!checkStringLitere(judet.text.toString()))
+        if(!checkJudet(judet.text.toString()))
         {
             judet.error = "Numele judetului trebuie sa contina exclusiv litere"
             valid = false
         }
 
-        val adresa = binding.editTextAdresa.text.toString()
+        //val localitate = binding.editTextLocalitate.text.toString()
+
+        val adresa = binding.editTextAdresa
+        if(!checkJudet(adresa.text.toString()))
+        {
+            adresa.error="Adresa nu este valida"
+            valid = false
+        }
 
         val nume = binding.editTextNume
         if(!checkStringLitere(nume.text.toString()))
@@ -147,7 +158,7 @@ class AdaugaClientFragment : Fragment() {
         if (valid) {
             val client = Client(cif = cif.text.toString(), denumire = denumire.text.toString(), regCom = regCom.text.toString(),
                 platitorDeTVA= platitorDeTVA,
-            localitate = localitate.text.toString(),judet = judet.text.toString(),adresa=adresa,
+            localitate = localitate.text.toString(),judet = judet.text.toString(),adresa=adresa.text.toString(),
                 nume = nume.text.toString(),telefon = telefon.text.toString(), email=email.text.toString())
 
             adaugaClientViewModel.insertClient(client)

@@ -14,9 +14,13 @@
         android:id="@+id/client_denumire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:text="denumire"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:text="cif"
+        android:text="ro123456789012"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,59 +40,70 @@
         android:id="@+id/client_nume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="nume"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/client_mail"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/client_cif" />
+        app:layout_constraintTop_toBottomOf="@id/client_cif"
+        app:layout_constraintVertical_bias="0.055" />
 
     <TextView
         android:id="@+id/client_mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="mail"
-        app:layout_constraintBaseline_toBaselineOf="@+id/client_nume"
-        app:layout_constraintStart_toEndOf="@+id/client_nume" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toEndOf="@+id/client_adresa"
+        app:layout_constraintTop_toBottomOf="@+id/client_telefon"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/client_telefon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
 
         android:layout_marginEnd="25dp"
         android:text="telefon"
-        app:layout_constraintBaseline_toBaselineOf="@+id/client_mail"
+        app:layout_constraintBaseline_toBaselineOf="@+id/client_nume"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/client_mail" />
+        app:layout_constraintStart_toEndOf="@+id/client_nume" />
 
     <TextView
         android:id="@+id/client_adresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:layout_marginBottom="10dp"
         android:text="adresa"
-        app:layout_constraintBaseline_toBaselineOf="@+id/client_denumire"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/client_denumire" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/client_nume" />
 
     <TextView
         android:id="@+id/client_registrul_comertului"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="25dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/client_cif"
+        android:textStyle="italic"
+        android:text="123456789"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/client_cif" />
+        app:layout_constraintStart_toEndOf="@+id/client_cif"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
