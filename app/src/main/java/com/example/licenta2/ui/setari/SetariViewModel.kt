@@ -28,7 +28,22 @@ class SetariViewModel : ViewModel() {
 
     fun stergereIncasari() {
         viewModelScope.launch(Dispatchers.IO) {
-            appDatabase.incasareDao().stergereIncasari()
+            appDatabase.incasareDao().stergereToateIncasarile()
+        }
+    }
+    fun stergereProduse() {
+        viewModelScope.launch(Dispatchers.IO) {
+            appDatabase.produsDao().stergereToateProdusele()
+        }
+    }
+    fun stergereClienti() {
+        viewModelScope.launch(Dispatchers.IO) {
+            appDatabase.clientDao().stergereTotiClientii()
+        }
+    }
+    fun stergereFacturi() {
+        viewModelScope.launch(Dispatchers.IO) {
+            appDatabase.facturaDao().stergereToateFacturile()
         }
     }
 }

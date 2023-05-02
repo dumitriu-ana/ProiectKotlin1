@@ -38,6 +38,15 @@ class SetariFragment : Fragment() {
             setariViewModel.stergereIncasari()
             Toast.makeText(requireContext(), "incasari sterse", Toast.LENGTH_LONG).show()
         }
+        binding.btnSetariStergereClienti.setOnClickListener{
+            setariViewModel.stergereClienti()
+        }
+        binding.btnSetariStergereFacturi.setOnClickListener {
+            setariViewModel.stergereFacturi()
+        }
+        binding.btnSetariStergereProduse.setOnClickListener {
+            setariViewModel.stergereProduse()
+        }
 
         return root
 

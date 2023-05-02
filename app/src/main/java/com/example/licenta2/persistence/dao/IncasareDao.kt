@@ -18,5 +18,5 @@ interface IncasareDao {
     suspend fun insertIncasare(incasare: Incasare)
 
     @Query("DELETE from incasari")
-    fun stergereIncasari()
+    fun stergereToateIncasarile()
 }

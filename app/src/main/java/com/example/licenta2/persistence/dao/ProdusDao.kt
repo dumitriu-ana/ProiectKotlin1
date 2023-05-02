@@ -15,4 +15,6 @@ interface ProdusDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertProdus(produs: Produs)
 
+    @Query("DELETE from produse")
+    fun stergereToateProdusele()
 }

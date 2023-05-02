@@ -17,7 +17,7 @@ class FacturaAdaptor(private val context: Context, private var facturi: List<Fac
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val factura = facturi[position]
+            val factura = facturi[position]
 
         holder.facturaClientTextView.text = factura.client
         holder.facturaSerieTextView.text = factura.serie
