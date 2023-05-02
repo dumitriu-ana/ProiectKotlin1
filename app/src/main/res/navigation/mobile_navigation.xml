@@ -102,7 +102,7 @@
     <fragment
         android:id="@+id/selectareProdusFragment"
         android:name="com.example.licenta2.ui.facturi.adaugare_facturi.selectie.selectieProdus.SelectareProdusFragment"
-        android:label="fragment_selectare_produs"
+        android:label="Selectare Produs"
         tools:layout="@layout/fragment_selectare_produs" >
         <action
             android:id="@+id/action_selectareProdusFragment_to_adaugaFactura"
@@ -111,7 +111,7 @@
     <fragment
         android:id="@+id/selectareClientFragment"
         android:name="com.example.licenta2.ui.facturi.adaugare_facturi.selectie.SelectareClientFragment"
-        android:label="fragment_selectare_client"
+        android:label="Selectare Client"
         tools:layout="@layout/fragment_selectare_client" >
         <action
             android:id="@+id/action_selectareClientFragment_to_adaugaFactura"

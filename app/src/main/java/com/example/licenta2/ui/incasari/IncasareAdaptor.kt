@@ -23,8 +23,7 @@ class IncasareAdaptor(private val context: Context, private var incasari: List<I
         holder.incasareNumarTextView.text = incasare.numarIncasare.toString()
         holder.incasareDataTextView.text = incasare.dataIncasare.toString()
         holder.incasareTipTextView.text = incasare.tipDocument.toString()
-        holder.incasareStatusTextView.text = "hopa"
-        holder.incasareSumaTextView.text = "hopa2"
+        holder.incasareSumaTextView.text = incasare.valoare.toString()
     }
 
     override fun getItemCount(): Int {
@@ -36,7 +35,7 @@ class IncasareAdaptor(private val context: Context, private var incasari: List<I
         val incasareNumarTextView: TextView = itemView.findViewById(R.id.incasare_numar)
         val incasareDataTextView: TextView = itemView.findViewById(R.id.incasare_data)
         val incasareTipTextView: TextView = itemView.findViewById(R.id.incasare_tip)
-        val incasareStatusTextView: TextView = itemView.findViewById(R.id.incasare_status)
+
         val incasareSumaTextView: TextView = itemView.findViewById(R.id.incasare_suma)
     }
 }

@@ -17,6 +17,8 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:text="@string/nume_client"
+        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,10 +26,17 @@
         android:id="@+id/incasare_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/data"
-        app:layout_constraintBaseline_toBaselineOf="@+id/incasare_numar"
-        app:layout_constraintStart_toEndOf="@+id/incasare_numar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/incasare_numar"
+        app:layout_constraintTop_toBottomOf="@+id/incasare_suma"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/incasare_tip"
@@ -41,27 +50,18 @@
         app:layout_constraintTop_toBottomOf="@+id/incasare_client"
         app:layout_constraintVertical_bias="0.25" />
 
-    <TextView
-        android:id="@+id/incasare_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:text="@string/status"
-        app:layout_constraintBaseline_toBaselineOf="@+id/incasare_tip"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/incasare_tip" />
 
     <TextView
         android:id="@+id/incasare_suma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="10dp"
         android:text="@string/suma"
-        app:layout_constraintBaseline_toBaselineOf="@+id/incasare_client"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/incasare_client" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/incasare_client"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/incasare_numar"
@@ -71,9 +71,23 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="numar"
+        android:ems="12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/incasare_tip" />
+
+    <TextView
+        android:id="@+id/textView_inc_RON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:text="RON"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/incasare_suma"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

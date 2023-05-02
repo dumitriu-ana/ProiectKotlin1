@@ -123,10 +123,15 @@ class AdaugaProdus : Fragment() {
         val cotaTVA = binding.spinnerCotaTVA.selectedItem.toString()
         val contineTVA = binding.checkBoxContineTVA.isChecked
         if (valid) {
+            var pretIntreg = pret.text.toString().toDouble()
+            if(!contineTVA)
+            {
+                pretIntreg = pretIntreg*(1+cotaTVA.toDouble())  //dc nu contine tva, il adaug
+            }
             val produs = Produs(
                 denumire = campDenumire.text.toString(),
                 unitateDeMasura = unitateDeMasura.text.toString(),
-                pret = pret.text.toString().toDouble(),
+                pret = pretIntreg,
                 cotaTVA = cotaTVA.toDouble(),
                 contineTVA = contineTVA
             )
@@ -140,9 +145,6 @@ class AdaugaProdus : Fragment() {
         }
     }
 
-    fun readData() {
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

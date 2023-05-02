@@ -16,7 +16,7 @@
 
         android:text="@string/nume_produs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,12 +34,11 @@
         android:id="@+id/produs_pret_fara_tva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:text="@string/pret_fara_tva"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/produs_pret_cu_tva"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_text_pretfaratva"
         app:layout_constraintVertical_bias="0.0" />
@@ -48,7 +47,6 @@
         android:id="@+id/tv_text_pretfaratva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="10dp"
         android:text="Pret fara TVA"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,20 +56,20 @@
         android:id="@+id/produs_pret_cu_tva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
         android:layout_marginTop="8dp"
         android:text="@string/pret_cu_tva"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/produs_pret_fara_tva"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toEndOf="@+id/textView5_tva_procent_semn"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/produs_cota_tva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="68dp"
 
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/cota_tva"
         app:layout_constraintStart_toEndOf="@+id/produs_pret_fara_tva"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -80,8 +78,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:text="Cota TVA"
         app:layout_constraintStart_toEndOf="@+id/tv_text_pretfaratva"
         app:layout_constraintTop_toBottomOf="@+id/produs_nume" />
@@ -96,6 +94,16 @@
         app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/produs_nume" />
+
+    <TextView
+        android:id="@+id/textView5_tva_procent_semn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:text="%"
+        app:layout_constraintStart_toEndOf="@+id/produs_cota_tva"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

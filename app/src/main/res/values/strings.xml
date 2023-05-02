@@ -35,9 +35,9 @@
     <string name="suma">suma</string>
 
     <string-array name="spinnerCotaTVA_items">
-        <item>19%</item>
-        <item>9%</item>
-        <item>0%</item>
+        <item>19</item>
+        <item>9</item>
+        <item>0</item>
     </string-array>
 
     <string-array name="spinnerClientFactura_items">
@@ -53,9 +53,18 @@
     </string-array>
 
     <string-array name="spinnerTipDocument_items">
-        <item>11111</item>
-        <item>222222</item>
-        <item>333333</item>
+        <item>Chitanta</item>
+        <item>Ordin de plata</item>
+        <item>Mandat postal</item>
+        <item>Card</item>
+        <item>CEC</item>
+        <item>Bilet de ordin</item>
+        <item>Alta incasare</item>
+        <item>Card online</item>
+        <item>Extras de cont</item>
+        <item>Ramburs</item>
+
+
     </string-array>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>

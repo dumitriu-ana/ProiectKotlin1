@@ -20,9 +20,9 @@
             android:layout_marginTop="10dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerTipDocument" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumarIncasare" />
 
         <Button
             android:id="@+id/buton_salvare_incasare"
@@ -44,13 +44,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="25dp"
             android:text="Client"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.16"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumarIncasare" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewTipDocumentIncasare"
@@ -95,13 +95,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
             android:text="Numar incasare"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/spinnerTipDocument" />
 
         <TextView
             android:id="@+id/textViewReprezentandIncasare"
