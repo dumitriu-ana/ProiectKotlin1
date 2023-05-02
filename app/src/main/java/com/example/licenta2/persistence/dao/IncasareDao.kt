@@ -17,4 +17,6 @@ interface IncasareDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIncasare(incasare: Incasare)
 
+    @Query("DELETE from incasari")
+    fun stergereIncasari()
 }
