@@ -124,7 +124,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
             android:ems="10"
-            android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.393"
             app:layout_constraintStart_toStartOf="parent"

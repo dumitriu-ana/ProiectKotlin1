@@ -129,7 +129,7 @@ class AdaugaIncasare : Fragment() {
 
         if(valid) {
             val incasare = Incasare(
-                numarIncasare = numarIncasare.text.toString().toInt(),
+                numarIncasare = numarIncasare.text.toString(),
                 clientIncasare = client.text.toString(),
                 tipDocument = tipDocument,
                 valoare = valoare.text.toString().toDouble(),
