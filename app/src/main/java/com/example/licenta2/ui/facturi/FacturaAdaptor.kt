@@ -24,8 +24,8 @@ class FacturaAdaptor(private val context: Context, private var facturi: List<Fac
         holder.facturaDataTextView.text = factura.data.toString()
         holder.facturaDataScadentaTextView.text = factura.dataScadenta.toString()
         holder.facturaDataIncasariiTextView.text = factura.dataIncasarii.toString()
-        holder.facturaStatusTextView.text = "hopa"
-        holder.facturaSumaTextView.text = "hopa2"
+       // holder.facturaStatusTextView.text = "hopa"
+        holder.facturaSumaTextView.text = "0.0"
     }
 
     override fun getItemCount(): Int {
@@ -38,7 +38,7 @@ class FacturaAdaptor(private val context: Context, private var facturi: List<Fac
         val facturaDataTextView: TextView = itemView.findViewById(R.id.factura_data)
         val facturaDataScadentaTextView: TextView = itemView.findViewById(R.id.factura_data_scadenta)
         val facturaDataIncasariiTextView: TextView = itemView.findViewById(R.id.factura_data_incasarii)
-        val facturaStatusTextView: TextView = itemView.findViewById(R.id.factura_status)
+       // val facturaStatusTextView: TextView = itemView.findViewById(R.id.factura_status)
         val facturaSumaTextView: TextView = itemView.findViewById(R.id.factura_suma)
     }
 }

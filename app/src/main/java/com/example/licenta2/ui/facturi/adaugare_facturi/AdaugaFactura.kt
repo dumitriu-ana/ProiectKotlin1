@@ -241,7 +241,12 @@ class AdaugaFactura : Fragment(), CellClickListener {
 
     private fun writeData() {
         var valid = true
-        val client = binding.spinnerClientFactura.selectedItem.toString()
+
+        val client = binding.tvAdaugareFacturaClient
+        if(client.text.toString().isBlank()){
+            client.error = "Selecteaza client"
+            valid = false
+        }
 
         val adresaLivrare = binding.editTextAdresaFactura
         if (adresaLivrare.text.toString().isBlank()) {
@@ -286,7 +291,7 @@ class AdaugaFactura : Fragment(), CellClickListener {
         if (valid) {
 
             val factura = Factura(
-                client = client,
+                client = client.text.toString(),
                 adresaLivrare = adresaLivrare.text.toString(),
                 data = data.text.toString(),
                 serie = serie.text.toString(),
