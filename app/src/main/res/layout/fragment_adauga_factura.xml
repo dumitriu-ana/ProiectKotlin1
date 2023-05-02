@@ -76,7 +76,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/editTextAdresaFactura"
                 app:layout_constraintHorizontal_bias="0.605"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerClientFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/factura_adaugaClient" />
 
             <TextView
                 android:id="@+id/textViewData"
@@ -193,31 +193,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view4" />
 
-            <Spinner
-                android:id="@+id/spinnerClientFactura"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.82"
-                app:layout_constraintStart_toEndOf="@+id/textViewClientFactura"
-                app:layout_constraintTop_toBottomOf="@+id/tv_adaugare_factura_client" />
 
             <EditText
                 android:id="@+id/editTextAdresaFactura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="adresa"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/factura_adaugaClient" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_adr_livrare" />
 
             <EditText
                 android:id="@+id/editTextData"
@@ -336,12 +325,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="108dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="286dp"
                 android:text="+ Adauga Client"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.401"
+                app:layout_constraintHorizontal_bias="0.546"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerClientFactura" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_adaugare_factura_client" />
 
             <TextView
                 android:id="@+id/tv_adaugare_factura_client"
@@ -365,6 +355,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonAdaugaProdusFactura" />
+
+            <TextView
+                android:id="@+id/textView_adr_livrare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="84dp"
+                android:text="Adresa livrare"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/factura_adaugaClient" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

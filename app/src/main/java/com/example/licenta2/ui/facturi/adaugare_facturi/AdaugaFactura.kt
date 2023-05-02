@@ -77,6 +77,9 @@ class AdaugaFactura : Fragment(), CellClickListener {
         sharedViewModel.selectedClient.observe(viewLifecycleOwner, Observer<Client> {
             Toast.makeText(requireContext(), "in obs  " +sharedViewModel.selectedClient.value, Toast.LENGTH_LONG).show()
             binding.tvAdaugareFacturaClient.text = it.denumire
+
+            val stringAdresa = "${it.judet}, ${it.localitate}, ${it.adresa}"
+            binding.editTextAdresaFactura.hint = stringAdresa
         })
 
 
@@ -97,29 +100,6 @@ class AdaugaFactura : Fragment(), CellClickListener {
             recyclerView.adapter = listaProduseFinaleAdaptor
         }
 
-
-        val spinnerClientFactura = root.findViewById<Spinner>(R.id.spinnerClientFactura)
-        val adapter = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.spinnerClientFactura_items,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerClientFactura.adapter = adapter
-
-        spinnerClientFactura.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val selectedItem = parent.getItemAtPosition(position).toString()
-                //Toast.makeText(this@AdaugaProdus, "Selected: $selectedItem", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {}
-        }
 
 
         val dateEditText = root.findViewById<EditText>(R.id.editTextData)
