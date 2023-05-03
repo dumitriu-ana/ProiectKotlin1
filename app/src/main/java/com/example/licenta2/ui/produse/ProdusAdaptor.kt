@@ -1,5 +1,6 @@
 package com.example.licenta2.ui.produse
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ class ProdusAdaptor(private val context: Context, private var produse: List<Prod
         return ViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produs = produse[position]
 
@@ -31,9 +33,9 @@ class ProdusAdaptor(private val context: Context, private var produse: List<Prod
         }.format(produs.pret)
 
         holder.prodNameTextView.text = produs.denumire
-        holder.prodPretCuTvaTextView.text = pretCuTVAformatat.toString()
-        holder.prodPretFaraTextView.text = pretFaraTVAformatat.toString()
-        holder.prodCotaTvaTextView.text = produs.cotaTVA.toString()
+        holder.prodPretCuTvaTextView.text = pretCuTVAformatat.toString() + " RON"
+        holder.prodPretFaraTextView.text = pretFaraTVAformatat.toString() + " RON"
+        holder.prodCotaTvaTextView.text = produs.cotaTVA.toString() +" %"
         holder.prodUmTextView.text = produs.unitateDeMasura.toString()
     }
 
