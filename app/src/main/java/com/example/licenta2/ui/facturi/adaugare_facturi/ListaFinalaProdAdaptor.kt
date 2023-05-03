@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Factura
 import com.example.licenta2.persistence.entities.Produs
+import java.text.NumberFormat
+import java.util.*
 
 
 class ListaFinalaProdAdaptor(private val context: Context, private var produse: List<Produs>) : RecyclerView.Adapter<ListaFinalaProdAdaptor.ViewHolder>() {
@@ -22,7 +24,10 @@ class ListaFinalaProdAdaptor(private val context: Context, private var produse: 
         val produs = produse[position]
 
         holder.produsDenumire.text = produs.denumire
-        holder.produsPret.text = produs.pret.toString()
+        val pretFormatat = NumberFormat.getNumberInstance(Locale.US).apply {
+            maximumFractionDigits = 2
+        }.format(produs.pret)
+        holder.produsPret.text = pretFormatat.toString()
        // holder.produsCantitate.text = "1"
 
 

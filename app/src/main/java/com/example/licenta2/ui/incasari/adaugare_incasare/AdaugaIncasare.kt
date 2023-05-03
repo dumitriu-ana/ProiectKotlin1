@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentAdaugaClientBinding
 import com.example.licenta2.databinding.FragmentAdaugaIncasareBinding
@@ -208,6 +209,7 @@ class AdaugaIncasare : Fragment() {
             adaugaIncasareViewModel.insertIncasare(incasare)
             // Toast.makeText(requireContext(), valid, Toast.LENGTH_SHORT).show()
             view?.let { showSnackbar(requireContext(), it, "Incasare introdusa cu succes!", false) }
+            findNavController().popBackStack()
         }
     }
 

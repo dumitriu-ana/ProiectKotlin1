@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "incasari")
 data class Incasare(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val idIncasare: Int = 0,
     @ColumnInfo(name="numarIncasare") val numarIncasare:String?,
     @ColumnInfo(name = "clientIncasare") val clientIncasare: String?,
     @ColumnInfo(name = "tipDocument") val tipDocument: String,

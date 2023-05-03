@@ -288,6 +288,7 @@ class AdaugaFactura : Fragment(), CellClickListener {
             view?.let {
                 showSnackbar(requireContext(), it, "Factura introdusa cu succes!", false)
             }
+            findNavController().popBackStack()
         }
     }
 

@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "facturi")
 data class Factura(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val idFactura: Int = 0,
     @ColumnInfo(name="client") val client:String?,
     @ColumnInfo(name = "adresaLivrare") val adresaLivrare: String?,
     @ColumnInfo(name = "data") val data: String,

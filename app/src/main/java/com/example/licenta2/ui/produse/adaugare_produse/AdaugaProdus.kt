@@ -32,18 +32,6 @@ fun checkUM(um: String): Boolean {
 }
 
 
-//fun showSnackbar(context: Context, view: View, message: String, isError: Boolean) {
-//    val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
-//    val snackbarView = snackbar.view
-//    if (isError) {
-//        snackbarView.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
-//    } else {
-//        snackbarView.setBackgroundColor(ContextCompat.getColor(context, R.color.green))
-//    }
-//    snackbar.show()
-//}
-
-
 class AdaugaProdus : Fragment() {
     private lateinit var adaugaProdusViewModel: AdaugaProdusViewModel
     private var _binding: FragmentAdaugaProdusBinding? = null;

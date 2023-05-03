@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.licenta2.databinding.FragmentAdaugaClientBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
@@ -179,6 +180,7 @@ class AdaugaClientFragment : Fragment() {
            // Toast.makeText(requireContext(), valid, Toast.LENGTH_SHORT).show()
             view?.let { showSnackbar(requireContext(), it, "Client introdus cu succes!", false) }
 
+            findNavController().popBackStack()
         }
 
 

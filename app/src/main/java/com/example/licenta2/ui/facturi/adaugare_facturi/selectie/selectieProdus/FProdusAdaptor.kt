@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Produs
 import com.example.licenta2.ui.facturi.adaugare_facturi.ProdusClickListener
+import java.text.NumberFormat
+import java.util.*
 
 
 class FProdusAdaptor(private val context: Context, private var produse: List<Produs>,
@@ -22,7 +24,11 @@ class FProdusAdaptor(private val context: Context, private var produse: List<Pro
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produs = produse[position]
         holder.prodNameTextView.text = produs.denumire
-        holder.prodPret.text = produs.pret.toString()
+
+        val pretFormatat = NumberFormat.getNumberInstance(Locale.US).apply {
+            maximumFractionDigits = 2
+        }.format(produs.pret)
+        holder.prodPret.text = pretFormatat.toString()
 
         holder.itemView.setOnClickListener {
             it.setBackgroundColor(context.getColor(R.color.btn_orange))

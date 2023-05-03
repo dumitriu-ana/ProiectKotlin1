@@ -9,7 +9,7 @@ import androidx.versionedparcelable.VersionedParcelize
 
 @Entity(tableName = "produse")
 data class Produs(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val idProdus: Int = 0,
     @ColumnInfo(name = "denumire") val denumire: String?,
     @ColumnInfo(name = "unitateDeMasura") val unitateDeMasura: String?,
     @ColumnInfo(name = "pret") val pret: Double?,
