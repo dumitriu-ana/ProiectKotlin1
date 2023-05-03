@@ -126,7 +126,7 @@ class AdaugaProdus : Fragment() {
             var pretIntreg = pret.text.toString().toDouble()
             if(!contineTVA)
             {
-                pretIntreg = pretIntreg*(1+cotaTVA.toDouble())  //dc nu contine tva, il adaug
+                pretIntreg = pretIntreg*(1+(cotaTVA.toDouble())/100)  //dc nu contine tva, il adaug
             }
             val produs = Produs(
                 denumire = campDenumire.text.toString(),
@@ -141,6 +141,8 @@ class AdaugaProdus : Fragment() {
             binding.editTextPret.text.clear()
            // Toast.makeText(requireContext(), valid, Toast.LENGTH_SHORT).show()
             view?.let { showSnackbar(requireContext(), it, "Produs introdus cu succes!", false) }
+
+            findNavController().popBackStack();
 
         }
     }

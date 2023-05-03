@@ -13,7 +13,8 @@
         android:id="@+id/produs_nume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:text="@string/nume_produs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,9 +59,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/pret_cu_tva"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toEndOf="@+id/textView5_tva_procent_semn"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toEndOf="@+id/produs_cota_tva"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
@@ -94,16 +97,6 @@
         app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/produs_nume" />
-
-    <TextView
-        android:id="@+id/textView5_tva_procent_semn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="%"
-        app:layout_constraintStart_toEndOf="@+id/produs_cota_tva"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

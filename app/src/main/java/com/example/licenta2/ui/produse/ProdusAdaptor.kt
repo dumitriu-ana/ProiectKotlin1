@@ -20,15 +20,19 @@ class ProdusAdaptor(private val context: Context, private var produse: List<Prod
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produs = produse[position]
+
         val pretFaraTVA = produs.pret?.div((1+ produs.cotaTVA!!.div(100)))
 
-        val numarFormatat = NumberFormat.getNumberInstance(Locale.US).apply {
+        val pretFaraTVAformatat = NumberFormat.getNumberInstance(Locale.US).apply {
             maximumFractionDigits = 2
         }.format(pretFaraTVA)
+        val pretCuTVAformatat = NumberFormat.getNumberInstance(Locale.US).apply {
+            maximumFractionDigits = 2
+        }.format(produs.pret)
 
         holder.prodNameTextView.text = produs.denumire
-        holder.prodPretCuTvaTextView.text = produs.pret.toString()
-        holder.prodPretFaraTextView.text = numarFormatat.toString()
+        holder.prodPretCuTvaTextView.text = pretCuTVAformatat.toString()
+        holder.prodPretFaraTextView.text = pretFaraTVAformatat.toString()
         holder.prodCotaTvaTextView.text = produs.cotaTVA.toString()
         holder.prodUmTextView.text = produs.unitateDeMasura.toString()
     }
