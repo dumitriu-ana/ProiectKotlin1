@@ -29,6 +29,10 @@
             android:icon="@drawable/ic_baseline_emoji_objects_24"
             android:title="@string/menu_produse" />
         <item
+            android:id="@+id/comenziFragment"
+            android:icon="@drawable/ic_baseline_settings_suggest_24"
+            android:title="@string/comenzi" />
+        <item
             android:id="@+id/registruFragment"
             android:icon="@drawable/ic_baseline_bar_chart_24"
             android:title="@string/menu_registru" />
@@ -40,5 +44,9 @@
             android:id="@+id/setariFragment"
             android:icon="@drawable/ic_baseline_settings_suggest_24"
             android:title="@string/menu_setari" />
+        <item
+            android:id="@+id/logoutFragment"
+            android:icon="@drawable/ic_baseline_settings_suggest_24"
+            android:title="@string/deconectare" />
     </group>
 </menu>

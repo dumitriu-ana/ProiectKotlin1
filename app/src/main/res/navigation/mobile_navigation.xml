@@ -117,5 +117,15 @@
             android:id="@+id/action_selectareClientFragment_to_adaugaFactura"
             app:destination="@id/adaugaFactura" />
     </fragment>
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.example.licenta2.ui.logout.LogoutFragment"
+        android:label="Deconectare"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/comenziFragment"
+        android:name="com.example.licenta2.ui.comenzi.ComenziFragment"
+        android:label="Comenzi"
+        tools:layout="@layout/fragment_comenzi" />
 
 </navigation>

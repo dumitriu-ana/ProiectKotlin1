@@ -4,12 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toolbar
+import android.widget.*
+import androidx.navigation.findNavController
+import com.example.licenta2.ui.autentificare.LoginFragment
+import com.example.licenta2.ui.autentificare.SplashFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.FirebaseApp
 
@@ -22,14 +22,24 @@ class FirebaseInregistrare : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firebase_auth)
 
+
+       /* findNavController().navigate(R.id.action_splashFragment_to_loginFragment)*/
+
+
+
+
+
         FirebaseApp.initializeApp(this)
 
 
+    }
+}
 
 //
 //        FirebaseApp.initializeApp(this)
@@ -74,5 +84,4 @@ class FirebaseInregistrare : AppCompatActivity() {
 //            val intent = Intent(this, FirebaseAuth::class.java)
 //            startActivity(intent)
 //        }
-    }
-    }
+
