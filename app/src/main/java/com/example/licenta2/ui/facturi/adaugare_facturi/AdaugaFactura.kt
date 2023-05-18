@@ -61,8 +61,6 @@ class AdaugaFactura : Fragment(), CellClickListener {
     private lateinit var listaProduse: List<Produs>
 
 
-    private lateinit var listaProdusCross: List<FacturaProdusCross>
-
 
 
 
@@ -284,7 +282,27 @@ class AdaugaFactura : Fragment(), CellClickListener {
         val mentiuni = binding.editTextMentiuni.text.toString()
 
 
+        val listaProdusCross = mutableListOf<FacturaProdusCross>()
 
+        for(i in 0 until recyclerView.childCount){
+            var idF=adaugaFacturaViewModel.getMaxFacturaId().toString().toInt()
+            val view = recyclerView.getChildAt(i)
+            val idP = listaProduse[i].idProdus
+            val pret = listaProduse[i].pret
+            val cantitate = view.findViewById<EditText>(R.id.cantitateEditText).text.toString().toDouble()
+
+            val produsCross=FacturaProdusCross(idF, idP, pret, cantitate)
+            listaProdusCross.add(produsCross)
+           // adaugaFacturaViewModel.insertFacturaProdus(produsCross)
+        }
+        var valoare =listaProdusCross.sumOf { it.pretFacturare!! * it.cantitate!! }
+        if(valoare<=0) {
+            valid=false;
+
+            view?.let {
+                showSnackbar(requireContext(), it, "Adauga cel putin un produs", true)
+            }
+        }
 
         if (valid) {
             val factura = Factura(
@@ -298,22 +316,10 @@ class AdaugaFactura : Fragment(), CellClickListener {
                 dataIncasarii = campDataIncasarii.text.toString(),
                 intocmitDe = intocmitDe,
                 mentiuni = mentiuni,
-                valoareFactura = 5.0
+                valoareFactura = valoare
             )
             adaugaFacturaViewModel.insertFactura(factura)
-            for(i in 0 until recyclerView.childCount){
-                var idF=adaugaFacturaViewModel.getMaxFacturaId().toString().toInt()
 
-                //val idF=9
-                val view = recyclerView.getChildAt(i)
-                val idP = listaProduse[i].idProdus
-                //val den = view.findViewById<TextView>(R.id.denumireTextView)
-                val pret = listaProduse[i].pret
-                val cantitate = view.findViewById<EditText>(R.id.cantitateEditText).text.toString().toDouble()
-
-                val produsCross=FacturaProdusCross(idF, idP, pret, cantitate)
-                adaugaFacturaViewModel.insertFacturaProdus(produsCross)
-            }
             // Toast.makeText(requireContext(), "Fact", Toast.LENGTH_SHORT).show()
             view?.let {
                 showSnackbar(requireContext(), it, "Factura introdusa cu succes!", false)

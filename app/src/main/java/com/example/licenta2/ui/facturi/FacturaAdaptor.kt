@@ -25,7 +25,7 @@ class FacturaAdaptor(private val context: Context, private var facturi: List<Fac
         holder.facturaDataScadentaTextView.text = factura.dataScadenta.toString()
         holder.facturaDataIncasariiTextView.text = factura.dataIncasarii.toString()
        // holder.facturaStatusTextView.text = "hopa"
-        holder.facturaSumaTextView.text = "0.0"
+        holder.facturaSumaTextView.text = factura.valoareFactura.toString()
     }
 
     override fun getItemCount(): Int {
