@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import com.example.licenta2.MySharedPreferences
 import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentFacturiBinding
 import com.example.licenta2.databinding.FragmentSetariBinding
@@ -48,7 +52,22 @@ class SetariFragment : Fragment() {
             setariViewModel.stergereProduse()
         }
 
+
+        val mySharedPreferences = MySharedPreferences(requireContext())
+
+        binding.switchDarkTheme.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                mySharedPreferences.setDarkThemeEnabled(true)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                mySharedPreferences.setDarkThemeEnabled(false)
+            }
+        }
+
         return root
+
+
 
     }
 

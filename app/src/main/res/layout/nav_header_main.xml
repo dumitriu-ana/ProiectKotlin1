@@ -10,23 +10,23 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
-        android:gravity="center"
         android:layout_marginTop="70dp"
+
         android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        android:gravity="center"
+        app:srcCompat="@drawable/poza_profil" />
 
     <TextView
         android:id="@+id/utilizator_nume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="12dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="35dp"
-        android:text="Nume utilizator"
+        android:text="Dumitriu Ana Maria"
         android:textColor="@color/green_dark"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -39,5 +39,5 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/green_y"
-        android:text="@string/nav_header_subtitle" />
+        android:text="anadumitriu68@gmail.com" />
 </LinearLayout>
