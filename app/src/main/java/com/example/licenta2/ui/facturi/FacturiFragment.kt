@@ -11,13 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
-import com.example.licenta2.databinding.FragmentAcasaBinding
 import com.example.licenta2.databinding.FragmentFacturiBinding
 import com.example.licenta2.persistence.database.AppDatabase
-import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Factura
-import com.example.licenta2.ui.acasa.AcasaViewModel
-import com.example.licenta2.ui.clienti.ClientAdaptor
 
 
 class FacturiFragment : Fragment() {

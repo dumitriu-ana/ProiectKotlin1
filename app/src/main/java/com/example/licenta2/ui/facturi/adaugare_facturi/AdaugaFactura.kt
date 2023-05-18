@@ -19,11 +19,18 @@ import com.example.licenta2.databinding.FragmentAdaugaFacturaBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Factura
+import com.example.licenta2.persistence.entities.FacturaProdusCross
+import com.example.licenta2.persistence.entities.Produs
 import com.example.licenta2.ui.facturi.adaugare_facturi.selectie.SharedViewModel
 import com.example.licenta2.ui.showSnackbar
+import com.maxIdFactura.licenta2.ui.facturi.adaugare_facturi.AdaugaFacturaViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
+
+
 
 fun currentDate(): String {
     val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
@@ -50,6 +57,14 @@ class AdaugaFactura : Fragment(), CellClickListener {
     private lateinit var appDatabase: AppDatabase
     private lateinit var recyclerView: RecyclerView
     private lateinit var listaProduseFinaleAdaptor: ListaFinalaProdAdaptor
+
+    private lateinit var listaProduse: List<Produs>
+
+
+    private lateinit var listaProdusCross: List<FacturaProdusCross>
+
+
+
 
     var client: Client? = null
 
@@ -87,7 +102,6 @@ class AdaugaFactura : Fragment(), CellClickListener {
             findNavController().navigate(R.id.action_adaugaFactura_to_selectareProdusFragment)
         }
 
-
         recyclerView = binding.rvFacturaListaProduse
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         listaProduseFinaleAdaptor = ListaFinalaProdAdaptor(requireContext(), emptyList())
@@ -98,6 +112,7 @@ class AdaugaFactura : Fragment(), CellClickListener {
 
             listaProduseFinaleAdaptor = ListaFinalaProdAdaptor(requireContext(), it)
             recyclerView.adapter = listaProduseFinaleAdaptor
+            listaProduse = it
         }
 
 
@@ -212,6 +227,7 @@ class AdaugaFactura : Fragment(), CellClickListener {
 
 
 
+
         binding.butonSalvareFactura.setOnClickListener {
             writeData()
         }
@@ -244,8 +260,7 @@ class AdaugaFactura : Fragment(), CellClickListener {
             serie.error = "Adauga seria"
             valid = false
         }
-        //lista prod
-        //
+
         val termenDePlata = binding.spinnerTermenDePlata.selectedItem.toString()
 
         val dataScadenta = binding.editTextDataScadenta
@@ -268,22 +283,37 @@ class AdaugaFactura : Fragment(), CellClickListener {
         val intocmitDe = binding.editTextIntocmitDe.text.toString()
         val mentiuni = binding.editTextMentiuni.text.toString()
 
-        if (valid) {
 
+
+
+        if (valid) {
             val factura = Factura(
                 client = client.text.toString(),
                 adresaLivrare = adresaLivrare.text.toString(),
                 data = data.text.toString(),
                 serie = serie.text.toString(),
-                //prod
                 termenDePlata = termenDePlata,
                 dataScadenta = dataScadenta.text.toString(),
                 dataLivrarii = dataLivrarii.text.toString(),
                 dataIncasarii = campDataIncasarii.text.toString(),
                 intocmitDe = intocmitDe,
-                mentiuni = mentiuni
+                mentiuni = mentiuni,
+                valoareFactura = 5.0
             )
             adaugaFacturaViewModel.insertFactura(factura)
+            for(i in 0 until recyclerView.childCount){
+                var idF=adaugaFacturaViewModel.getMaxFacturaId().toString().toInt()
+
+                //val idF=9
+                val view = recyclerView.getChildAt(i)
+                val idP = listaProduse[i].idProdus
+                //val den = view.findViewById<TextView>(R.id.denumireTextView)
+                val pret = listaProduse[i].pret
+                val cantitate = view.findViewById<EditText>(R.id.cantitateEditText).text.toString().toDouble()
+
+                val produsCross=FacturaProdusCross(idF, idP, pret, cantitate)
+                adaugaFacturaViewModel.insertFacturaProdus(produsCross)
+            }
             // Toast.makeText(requireContext(), "Fact", Toast.LENGTH_SHORT).show()
             view?.let {
                 showSnackbar(requireContext(), it, "Factura introdusa cu succes!", false)

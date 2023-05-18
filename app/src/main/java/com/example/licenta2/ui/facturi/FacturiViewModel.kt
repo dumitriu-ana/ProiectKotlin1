@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Factura
+import com.example.licenta2.persistence.entities.FacturaCuProduse
 
 class FacturiViewModel : ViewModel() {
 
