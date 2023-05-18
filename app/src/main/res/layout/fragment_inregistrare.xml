@@ -21,7 +21,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inregistrare"
+                android:text="@string/inregistrare"
                 android:textSize="35sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="20dp"
-                android:text="Inregistrare"
+                android:text="@string/inregistrare1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.398"
                 app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="30dp"
-                android:text="CIF"
+                android:text="@string/cif1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="40dp"
-                android:text="CUI"
+                android:text="@string/cui1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inregistrare_tvCIF" />
 
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
 
                 android:layout_marginTop="12dp"
-                android:text="Conectare la un cont existent"
+                android:text="@string/conectare_la_un_cont_existent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.417"
                 app:layout_constraintStart_toStartOf="parent"
