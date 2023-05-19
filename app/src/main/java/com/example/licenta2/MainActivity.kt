@@ -1,5 +1,8 @@
 package com.example.licenta2
 
+import android.app.Activity
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +19,7 @@ import androidx.room.Room
 import com.example.licenta2.databinding.ActivityMainBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Produs
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +30,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mySharedPreferences = MySharedPreferences(this)
+
         setAppTheme()
+
+        val selectedLanguage = mySharedPreferences.getLanguage()
+        if (selectedLanguage != null) {
+            // Schimba limba aplicației
+            val locale = Locale(selectedLanguage)
+            Locale.setDefault(locale)
+            val configuration = Configuration()
+            configuration.setLocale(locale)
+            resources.updateConfiguration(configuration, resources.displayMetrics)
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -73,5 +88,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 
 }

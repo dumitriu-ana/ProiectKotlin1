@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Licenta2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -69,12 +70,12 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Parola</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Conectare</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="action_sign_in">Conecteaza-te sau inregistreaza-te</string>
+    <string name="action_sign_in_short">Conecteaza-te</string>
+    <string name="welcome">"Bun venit !"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_password">Parola trebuie sa aiba minim 5 caractere</string>
+    <string name="login_failed">"Conectarea a esuat"</string>
     <string name="deconectare">Deconectare</string>
     <string name="comenzi">Comenzi</string>
     <string name="salveaza_client">Salveaza client</string>

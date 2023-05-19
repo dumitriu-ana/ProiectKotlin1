@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Licenta2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_acasa">Home</string>
+    <string name="menu_facturi">Invoices</string>
+    <string name="menu_incasari">Receipts</string>
+    <string name="menu_clienti">Clients</string>
+    <string name="menu_produse">Products</string>
+    <string name="menu_registru">Registry</string>
+    <string name="menu_previziuni">Forecasts</string>
+    <string name="menu_setari">Settings</string>
+    <string name="picture_prod">Product Picture</string>
+    <string name="nume_produs">Product Name</string>
+    <string name="unitate_de_masura">Unit of Measurement</string>
+    <string name="pret_fara_tva">Price without VAT</string>
+    <string name="pret_cu_tva">Price with VAT</string>
+    <string name="cota_tva">VAT Rate</string>
+    <string name="nume_client">Client Name</string>
+    <string name="serie">Series</string>
+    <string name="data">Date</string>
+    <string name="data_scadenta">Due Date</string>
+    <string name="data_incasarii">Receipt Date</string>
+    <string name="status">Status</string>
+    <string name="suma">Amount</string>
+
+
+
+    <string-array name="spinnerCotaTVA_items">
+        <item>19</item>
+        <item>9</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="spinnerClientFactura_items">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="spinnerTermenDePlata_items">
+        <item>7</item>
+        <item>14</item>
+        <item>21</item>
+    </string-array>
+
+    <string-array name="spinnerTipDocument_items">
+        <item>Receipt</item>
+        <item>Payment order</item>
+        <item>Postal order</item>
+        <item>Card</item>
+        <item>Check</item>
+        <item>Money order</item>
+        <item>Other collection</item>
+        <item>Online card</item>
+        <item>Account statement</item>
+        <item>Cash on delivery</item>
+
+
+
+    </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">Welcome!</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">Login failed</string>
+    <string name="deconectare">Sign out</string>
+    <string name="comenzi">Orders</string>
+    <string name="salveaza_client">Save Client</string>
+    <string name="cif">VAT number</string>
+    <string name="denumire_client">Client name</string>
+    <string name="cui">Registration number</string>
+    <string name="localitate">City</string>
+    <string name="judet">County</string>
+    <string name="adresa">Address</string>
+    <string name="telefon">Phone</string>
+    <string name="nume">Name</string>
+    <string name="email">Email</string>
+    <string name="platitor_de_tva">VAT payer</string>
+    <string name="salveaza_factura">Save Invoice</string>
+    <string name="client">Client</string>
+    <string name="adresa_livrare">Delivery address</string>
+    <string name="data1">Date</string>
+    <string name="serie1">Series</string>
+    <string name="termen_de_plata">Payment term</string>
+    <string name="data_scadenta1">Due date</string>
+    <string name="data_livrarii">Delivery date</string>
+    <string name="data_incasarii1">Payment date</string>
+    <string name="document_intocmit_de">Document issued by</string>
+    <string name="mentiuni">Mentions</string>
+    <string name="adauga_produs">+ Add Product</string>
+    <string name="adresa_livrare1">Delivery address</string>
+    <string name="denumire_client1">Client name</string>
+    <string name="adauga_client1">+ Add Client</string>
+    <string name="salveaza_incasare">Save Payment</string>
+    <string name="client1">Client</string>
+    <string name="tip_document">Document type</string>
+    <string name="valoare">Value</string>
+    <string name="data2">Date</string>
+    <string name="numar_incasare">Payment number</string>
+    <string name="reprezentand">Representing</string>
+    <string name="salveaza_produs">Save Product</string>
+    <string name="denumire_produs">Product name</string>
+    <string name="unitate_de_masura1">Unit of measurement</string>
+    <string name="pret_unitar1">Unit price</string>
+    <string name="denumire1">Name</string>
+    <string name="contine_tva">Includes VAT</string>
+    <string name="cota_tva1">VAT rate</string>
+    <string name="adauga_client">Add Client</string>
+    <string name="adauga_factura">Add Invoice</string>
+    <string name="adauga_incasare">Add Payment</string>
+    <string name="inregistrare">Registration</string>
+    <string name="inregistrare1">Registration</string>
+    <string name="cif1">VAT number</string>
+    <string name="cui1">Registration number</string>
+    <string name="conectare_la_un_cont_existent">Sign in to an existing account</string>
+    <string name="conectare">Sign In</string>
+    <string name="conectare1">Sign In</string>
+    <string name="creeaza_cont">Create Account</string>
+    <string name="deconectare1">Sign Out</string>
+    <string name="adauga_produs1">Add Product</string>
+    <string name="tema_intunecata">Dark Theme</string>
+
+
+</resources>

@@ -16,4 +16,13 @@ class MySharedPreferences(context: Context) {
         editor.putBoolean("isDarkThemeEnabled", isEnabled)
         editor.apply()
     }
+
+
+    fun setLanguage(language: String) {
+        editor.putString("selectedLanguage", language)
+        editor.apply()
+    }
+    fun getLanguage(): String? {
+        return sharedPreferences.getString("selectedLanguage", null)
+    }
 }

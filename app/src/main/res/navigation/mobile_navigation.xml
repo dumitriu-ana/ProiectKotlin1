@@ -10,14 +10,14 @@
     <fragment
         android:id="@+id/acasaFragment"
         android:name="com.example.licenta2.ui.acasa.AcasaFragment"
-        android:label="Acasa"
+        android:label="@string/menu_acasa"
         tools:layout="@layout/fragment_acasa">
     </fragment>
 
     <fragment
         android:id="@+id/facturiFragment"
         android:name="com.example.licenta2.ui.facturi.FacturiFragment"
-        android:label="Facturi"
+        android:label="@string/menu_facturi"
         tools:layout="@layout/fragment_facturi" >
         <action
             android:id="@+id/action_facturiFragment_to_adaugaFactura"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/incasariFragment"
         android:name="com.example.licenta2.ui.incasari.IncasariFragment"
-        android:label="Incasari"
+        android:label="@string/menu_incasari"
         tools:layout="@layout/fragment_incasari" >
         <action
             android:id="@+id/action_incasariFragment_to_adaugaIncasare"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/clientiFragment"
         android:name="com.example.licenta2.ui.clienti.ClientiFragment"
-        android:label="Clienti"
+        android:label="@string/menu_clienti"
         tools:layout="@layout/fragment_clienti" >
         <action
             android:id="@+id/action_clientiFragment_to_adaugaClientFragment"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/produseFragment"
         android:name="com.example.licenta2.ui.produse.ProduseFragment"
-        android:label="Produse"
+        android:label="@string/menu_produse"
         tools:layout="@layout/fragment_produse" >
         <action
             android:id="@+id/action_produseFragment_to_adaugaProdus"
@@ -53,27 +53,27 @@
     <fragment
         android:id="@+id/registruFragment"
         android:name="com.example.licenta2.ui.registru.RegistruFragment"
-        android:label="Registru"
+        android:label="@string/menu_registru"
         tools:layout="@layout/fragment_registru" />
     <fragment
         android:id="@+id/previziuniFragment"
         android:name="com.example.licenta2.ui.previziuni.PreviziuniFragment"
-        android:label="Previziuni"
+        android:label="@string/menu_previziuni"
         tools:layout="@layout/fragment_previziuni" />
     <fragment
         android:id="@+id/setariFragment"
         android:name="com.example.licenta2.ui.setari.SetariFragment"
-        android:label="Setari"
+        android:label="@string/menu_setari"
         tools:layout="@layout/fragment_setari" />
     <fragment
         android:id="@+id/adaugaClientFragment"
         android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
-        android:label="Adaugare Client"
+        android:label="@string/adauga_client"
         tools:layout="@layout/fragment_adauga_client" />
     <fragment
         android:id="@+id/adaugaFactura"
         android:name="com.example.licenta2.ui.facturi.adaugare_facturi.AdaugaFactura"
-        android:label="Adaugare Factura"
+        android:label="@string/adauga_factura"
         tools:layout="@layout/fragment_adauga_factura" >
         <action
             android:id="@+id/action_adaugaFactura_to_selectareProdusFragment"
@@ -85,7 +85,7 @@
     <fragment
         android:id="@+id/adaugaIncasare"
         android:name="com.example.licenta2.ui.incasari.adaugare_incasare.AdaugaIncasare"
-        android:label="Adaugare Incasare"
+        android:label="Adauga incasare"
         tools:layout="@layout/fragment_adauga_incasare" />
     <fragment
         android:id="@+id/adaugaProdus"
@@ -120,12 +120,12 @@
     <fragment
         android:id="@+id/logoutFragment"
         android:name="com.example.licenta2.ui.logout.LogoutFragment"
-        android:label="Deconectare"
+        android:label="@string/deconectare"
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/comenziFragment"
         android:name="com.example.licenta2.ui.comenzi.ComenziFragment"
-        android:label="Comenzi"
+        android:label="@string/comenzi"
         tools:layout="@layout/fragment_comenzi" />
 
 </navigation>
