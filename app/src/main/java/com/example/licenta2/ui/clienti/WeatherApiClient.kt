@@ -80,7 +80,7 @@ data class Sys(
 
 object WeatherApiClient {
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-    private const val API_KEY = "7706df1a3d4cf2246208c814647b627a" // Înlocuiți cu cheia dvs. API
+    private const val API_KEY = "7706df1a3d4cf2246208c814647b627a"
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)

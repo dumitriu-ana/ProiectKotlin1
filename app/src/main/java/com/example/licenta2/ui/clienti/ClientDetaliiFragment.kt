@@ -137,7 +137,7 @@ class ClientDetaliiFragment : Fragment() {
             override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                 if (response.isSuccessful) {
                     val weatherResponse = response.body()
-                    // Verificați dacă răspunsul este nul sau conține date valide
+
                     if (weatherResponse != null) {
                         val main = weatherResponse.weather[0].main
                         val description = weatherResponse.weather[0].description
@@ -171,15 +171,13 @@ class ClientDetaliiFragment : Fragment() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(android.R.string.dialog_alert_title))
             .setMessage("Dorești să ștergi acest client?")
-            .setCancelable(false) // Setează cancelabil la false pentru a preveni închiderea dialogului la apăsarea în afara acestuia
+            .setCancelable(false) //daca apesi in exterior, nu se inchide
             .setNegativeButton("Nu") { dialog, _ ->
-                // Acțiunea care trebuie executată când se apasă butonul "Nu"
-                dialog.dismiss() // Închide dialogul
+                dialog.dismiss() // inchid caseta
             }
             .setPositiveButton("Da") { dialog, _ ->
-                // Acțiunea care trebuie executată când se apasă butonul "Da"
                 deleteClient()
-                dialog.dismiss() // Închide dialogul
+                dialog.dismiss()
             }
             .show()
     }
