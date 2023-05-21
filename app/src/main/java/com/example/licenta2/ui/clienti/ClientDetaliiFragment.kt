@@ -16,12 +16,19 @@ import com.example.licenta2.MySharedPreferences
 import com.example.licenta2.databinding.FragmentClientDetaliiBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
+import com.example.licenta2.ui.clienti.adaugare_client.WeatherApiClient
+import com.example.licenta2.ui.clienti.adaugare_client.WeatherResponse
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ClientDetaliiFragment : Fragment() {
@@ -38,6 +45,8 @@ class ClientDetaliiFragment : Fragment() {
 
     private lateinit var appDatabase: AppDatabase
 
+    private val latitude = 44.34
+    private val longitude = 10.99
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,17 +79,6 @@ class ClientDetaliiFragment : Fragment() {
     }
 
 
-//    fun setareMapMode(){
-//        val mySharedPreferences = MySharedPreferences(requireContext())
-//        val selectedMapMode = mySharedPreferences.getMapMode()
-//        if(selectedMapMode!=null)
-//        {
-//            selectedMapModeShared = selectedMapMode
-//        }
-//        else{
-//            selectedMapModeShared = "GoogleMap.MAP_TYPE_NORMAL"
-//        }
-//    }
 
     private fun completareTV(client: Client?) {
         binding.apply {
@@ -110,10 +108,9 @@ class ClientDetaliiFragment : Fragment() {
                 // Centrare harta + lvl de zoom
                 val nivelZoom = mySharedPreferences.getMapZoom()
                 googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, nivelZoom))
-
-
                 googleMap?.mapType = mySharedPreferences.getMapMode()
-                Toast.makeText(requireContext(), googleMap?.mapType.toString(), Toast.LENGTH_LONG ).show()
+
+                getWeatherDetails(location.latitude, location.longitude)
             }
 
 
@@ -128,6 +125,47 @@ class ClientDetaliiFragment : Fragment() {
             }
         }
     }
+
+
+
+    private fun getWeatherDetails(latitude: Double, longitude: Double) {
+        val apiKey = "7706df1a3d4cf2246208c814647b627a"
+
+        val call = WeatherApiClient.weatherApiService.getWeatherData(latitude, longitude, apiKey)
+        call.enqueue(object : Callback<WeatherResponse> {
+
+            override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
+                if (response.isSuccessful) {
+                    val weatherResponse = response.body()
+                    // Verificați dacă răspunsul este nul sau conține date valide
+                    if (weatherResponse != null) {
+                        val main = weatherResponse.weather[0].main
+                        val description = weatherResponse.weather[0].description
+                        val temp = String.format("%.2f", weatherResponse.main.temp - 273.15) + "°C"
+                        val pressure = weatherResponse.main.pressure.toString() + " hPa"
+                        val humidity = weatherResponse.main.humidity.toString() + "%"
+
+                        val detaliiVreme = "Detalii vreme:\n" +
+                                "In principal: $main\n" +
+                                "Descriere: $description\n" +
+                                "      Temperatura: $temp\n" +
+                                "      Presiune: $pressure\n" +
+                                "      Umiditate: $humidity"
+
+                        binding.tvVreme.text = detaliiVreme
+                    }
+
+                } else {
+                    Toast.makeText(requireContext(), "Fetch pentru datele de vreme nu a functionat", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
+                Toast.makeText(requireContext(), "Eroare: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
     private fun showConfirmationDialog() {
         MaterialAlertDialogBuilder(requireContext())
