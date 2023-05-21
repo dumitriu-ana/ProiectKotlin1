@@ -2,9 +2,7 @@ package com.example.licenta2.ui.clienti
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Factura
@@ -32,4 +30,13 @@ class ClientiViewModel : ViewModel() {
         return appDatabase.clientDao().getAllClienti()
     }
 
+    fun retrieveItem(id: Int): LiveData<Client> {
+        return appDatabase.clientDao().getItem(id).asLiveData()
+    }
+
+    fun deleteItem(client: Client) {
+        viewModelScope.launch {
+            appDatabase.clientDao().delete(client)
+        }
+    }
 }

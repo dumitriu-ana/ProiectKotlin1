@@ -135,6 +135,7 @@
     <string name="deconectare1">Sign Out</string>
     <string name="adauga_produs1">Add Product</string>
     <string name="tema_intunecata">Dark Theme</string>
+    <string name="sterge_clientul">Sterge clientul</string>
 
 
 </resources>

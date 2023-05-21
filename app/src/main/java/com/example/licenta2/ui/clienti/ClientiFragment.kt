@@ -11,17 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
-import com.example.licenta2.databinding.FragmentAcasaBinding
 import com.example.licenta2.databinding.FragmentClientiBinding
 import com.example.licenta2.persistence.database.AppDatabase
-import com.example.licenta2.persistence.entities.Client
-import com.example.licenta2.persistence.entities.Factura
-import com.example.licenta2.ui.acasa.AcasaViewModel
 
-class
-ClientiFragment : Fragment() {
+class ClientiFragment : Fragment(), ClientAdaptor.OnItemClickListener {
     private lateinit var clientiViewModel: ClientiViewModel
-    private var _binding: FragmentClientiBinding? = null;
+    private var _binding: FragmentClientiBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var appDatabase: AppDatabase
@@ -38,29 +33,38 @@ ClientiFragment : Fragment() {
 
         clientiViewModel.initDatabase(requireContext())
 
-        // RV
+        // Initialize RecyclerView
         recyclerView = binding.rvClienti
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         clientAdaptor = ClientAdaptor(requireContext(), emptyList())
         recyclerView.adapter = clientAdaptor
+
+        clientAdaptor.setOnItemClickListener(this)
+
         clientiViewModel.getAllClienti().observe(viewLifecycleOwner, Observer { clientList ->
-            val clientListNormal: List<Client> = clientList
-            clientAdaptor = ClientAdaptor(requireContext(), clientListNormal)
-            recyclerView.adapter = clientAdaptor
+            clientAdaptor.clients = clientList
+            clientAdaptor.notifyDataSetChanged()
         })
+
         binding.butonAdaugaClient.setOnClickListener {
             findNavController().navigate(R.id.action_clientiFragment_to_adaugaClientFragment)
         }
+
         clientiViewModel.text.observe(viewLifecycleOwner, Observer {
-           // binding.textClienti.text = it
+            // binding.textClienti.text = it
             appDatabase = AppDatabase.getDatabase(requireContext())
         })
+
         return root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(client_id: Int) {
+        val action = ClientiFragmentDirections.actionClientiFragmentToClientDetaliiFragment2(client_id)
+        findNavController().navigate(action)
     }
 }

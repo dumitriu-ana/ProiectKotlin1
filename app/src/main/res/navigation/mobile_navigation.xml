@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_clientiFragment_to_adaugaClientFragment"
             app:destination="@id/adaugaClientFragment" />
+        <action
+            android:id="@+id/action_clientiFragment_to_clientDetaliiFragment2"
+            app:destination="@id/clientDetaliiFragment2" />
     </fragment>
     <fragment
         android:id="@+id/produseFragment"
@@ -65,11 +68,25 @@
         android:name="com.example.licenta2.ui.setari.SetariFragment"
         android:label="@string/menu_setari"
         tools:layout="@layout/fragment_setari" />
+
+
     <fragment
         android:id="@+id/adaugaClientFragment"
         android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
         android:label="@string/adauga_client"
-        tools:layout="@layout/fragment_adauga_client" />
+        tools:layout="@layout/fragment_adauga_client" >
+    <argument
+        android:name="item_id"
+        android:defaultValue="-1"
+        app:argType="integer" />
+    <action
+        android:id="@+id/action_adaugaClientFragment_to_ClientFragment"
+        app:destination="@id/clientiFragment"
+        app:popUpTo="@id/clientiFragment"
+        app:popUpToInclusive="true" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/adaugaFactura"
         android:name="com.example.licenta2.ui.facturi.adaugare_facturi.AdaugaFactura"
@@ -127,5 +144,18 @@
         android:name="com.example.licenta2.ui.comenzi.ComenziFragment"
         android:label="@string/comenzi"
         tools:layout="@layout/fragment_comenzi" />
+    <fragment
+        android:id="@+id/clientDetaliiFragment2"
+        android:name="com.example.licenta2.ui.clienti.ClientDetaliiFragment"
+        android:label="Detalii client"
+        tools:layout="@layout/fragment_client_detalii" >
+        <argument
+            android:name="client_id"
+            app:argType="integer"
+            />
+        <action
+            android:id="@+id/action_clientDetaliiFragment2_to_adaugaClientFragment"
+            app:destination="@id/adaugaClientFragment"/>
+    </fragment>
 
 </navigation>

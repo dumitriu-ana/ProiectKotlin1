@@ -107,7 +107,7 @@
     <string name="adresa_livrare1">Adresse de livraison</string>
     <string name="denumire_client1">Nom du client</string>
     <string name="adauga_client1">+ Ajouter un client</string>
-    <string name="salveaza_incasare">Enregistrer l'encaissement</string>
+    <string name="salveaza_incasare">Enregistrer l\'encaissement</string>
     <string name="client1">Client</string>
     <string name="tip_document">Type de document</string>
     <string name="valoare">Valeur</string>
@@ -135,6 +135,7 @@
     <string name="deconectare1">Déconnexion</string>
     <string name="adauga_produs1">Ajouter un produit</string>
     <string name="tema_intunecata">Thème sombre</string>
+    <string name="sterge_clientul">Sterge clientul</string>
 
 
 </resources>

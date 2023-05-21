@@ -5,23 +5,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Client
 
-class ClientAdaptor(private val context: Context, private var clients: List<Client>) :
-    RecyclerView.Adapter<ClientAdaptor.ViewHolder>() {
+class ClientAdaptor(
+    private val context: Context,
+    var clients: List<Client>
+) : RecyclerView.Adapter<ClientAdaptor.ViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(client: Int)
+    }
+
+    private var onItemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        onItemClickListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.lv_row_clienti, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.lv_row_clienti, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val client = clients[position]
 
-        val adresaTotal = client.judet + ", " + client.localitate + ", " + client.adresa
+        val adresaTotal = "${client.judet}, ${client.localitate}, ${client.adresa}"
         holder.clientDenumireTextView.text = client.denumire
         holder.clientCifTextView.text = client.cif
         holder.clientNumeTextView.text = client.nume
@@ -29,6 +41,10 @@ class ClientAdaptor(private val context: Context, private var clients: List<Clie
         holder.clientTelefonTextView.text = client.telefon
         holder.clientAdresaTextView.text = adresaTotal
         holder.clientRegistrulComertuluiTextView.text = client.regCom
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.onItemClick(client.idClient)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -42,6 +58,7 @@ class ClientAdaptor(private val context: Context, private var clients: List<Clie
         val clientMailTextView: TextView = itemView.findViewById(R.id.client_mail)
         val clientTelefonTextView: TextView = itemView.findViewById(R.id.client_telefon)
         val clientAdresaTextView: TextView = itemView.findViewById(R.id.client_adresa)
-        val clientRegistrulComertuluiTextView: TextView = itemView.findViewById(R.id.client_registrul_comertului)
+        val clientRegistrulComertuluiTextView: TextView =
+            itemView.findViewById(R.id.client_registrul_comertului)
     }
 }
