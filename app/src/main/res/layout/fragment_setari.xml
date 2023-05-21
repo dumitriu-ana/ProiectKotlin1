@@ -31,13 +31,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/switchDarkTheme" />
+
+            <Spinner
+                android:id="@+id/spinnerMapMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.603"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerLimba" />
+
+            <TextView
+                android:id="@+id/tv_nivelZoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Vizualizare"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <Spinner
+                android:id="@+id/spinnerZoomMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.527"
+                app:layout_constraintStart_toEndOf="@+id/tv_nivelZoom"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerMapMode" />
+
             <Button
                 android:id="@+id/btn_setari_stergere_incasari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="104dp"
+                android:layout_marginTop="250dp"
                 android:text="Incasari"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -55,11 +87,11 @@
                 android:id="@+id/btn_setari_stergere_produse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="112dp"
+                android:layout_marginStart="88dp"
+                android:layout_marginTop="76dp"
                 android:text="Produse"
                 app:layout_constraintStart_toEndOf="@id/btn_setari_stergere_incasari"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerZoomMap" />
 
             <Button
                 android:id="@+id/btn_setari_stergere_clienti"
@@ -81,6 +113,26 @@
                 app:layout_constraintHorizontal_bias="0.252"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:text="Tipul hartii:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Limba:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/switchDarkTheme" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

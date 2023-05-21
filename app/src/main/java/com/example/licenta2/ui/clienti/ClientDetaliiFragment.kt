@@ -7,10 +7,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.licenta2.MySharedPreferences
 import com.example.licenta2.databinding.FragmentClientDetaliiBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
@@ -26,9 +28,10 @@ class ClientDetaliiFragment : Fragment() {
     private lateinit var clientiViewModel: ClientiViewModel
     private val navigationArgs: ClientDetaliiFragmentArgs by navArgs()
     lateinit var client: Client
-
+    private lateinit var mySharedPreferences: MySharedPreferences
 
     private var googleMap: GoogleMap? = null
+    private lateinit var selectedMapModeShared: String
 
     private var _binding: FragmentClientDetaliiBinding? = null;
     private val binding get() = _binding!!
@@ -51,7 +54,7 @@ class ClientDetaliiFragment : Fragment() {
         binding.mapView.getMapAsync { map ->
             googleMap = map
         }
-
+        mySharedPreferences = MySharedPreferences(requireContext())
 
 
         return root
@@ -64,8 +67,20 @@ class ClientDetaliiFragment : Fragment() {
             client = selectedClient
             completareTV(client)
         }
-
     }
+
+
+//    fun setareMapMode(){
+//        val mySharedPreferences = MySharedPreferences(requireContext())
+//        val selectedMapMode = mySharedPreferences.getMapMode()
+//        if(selectedMapMode!=null)
+//        {
+//            selectedMapModeShared = selectedMapMode
+//        }
+//        else{
+//            selectedMapModeShared = "GoogleMap.MAP_TYPE_NORMAL"
+//        }
+//    }
 
     private fun completareTV(client: Client?) {
         binding.apply {
@@ -91,9 +106,14 @@ class ClientDetaliiFragment : Fragment() {
                 val location = addressList[0]
                 val latLng = LatLng(location.latitude, location.longitude)
                 // ad marker
-                googleMap?.addMarker(MarkerOptions().position(latLng).title("Client Location"))
+                googleMap?.addMarker(MarkerOptions().position(latLng).title(client.denumire))
                 // Centrare harta + lvl de zoom
-                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
+                val nivelZoom = mySharedPreferences.getMapZoom()
+                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, nivelZoom))
+
+
+                googleMap?.mapType = mySharedPreferences.getMapMode()
+                Toast.makeText(requireContext(), googleMap?.mapType.toString(), Toast.LENGTH_LONG ).show()
             }
 
 

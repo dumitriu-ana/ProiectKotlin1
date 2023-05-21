@@ -21,6 +21,7 @@ import com.example.licenta2.databinding.FragmentFacturiBinding
 import com.example.licenta2.databinding.FragmentSetariBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.ui.facturi.FacturiViewModel
+import com.google.android.gms.maps.GoogleMap
 import java.util.*
 
 
@@ -69,7 +70,7 @@ class SetariFragment : Fragment() {
                 mySharedPreferences.setDarkThemeEnabled(false)
             }
         }
-
+//spinner limba
         val languages = arrayOf("Română", "English", "Français")
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, languages)
@@ -99,8 +100,52 @@ class SetariFragment : Fragment() {
             }
         }
 
-        return root
+        //spinner Harta
+        val mapMode = arrayOf("Normal", "Satelit")
+        val adapterHarta = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, mapMode)
+        adapterHarta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerMapMode.adapter = adapterHarta
 
+        binding.spinnerMapMode.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedMapMode = when (position) {
+                    0 -> GoogleMap.MAP_TYPE_NORMAL // normal
+                    1 -> GoogleMap.MAP_TYPE_SATELLITE // satelit
+                    else -> GoogleMap.MAP_TYPE_NORMAL // implicit normal
+                }
+
+                // in shared pf
+                mySharedPreferences.setMapMode(selectedMapMode)
+        }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
+        //spinner zoom
+        val mapZoom = arrayOf("Globala","Ampla", "Medie", "Apropiata", "In detaliu")
+        val adapterZoom= ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, mapZoom)
+        adapterZoom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerZoomMap.adapter = adapterZoom
+
+        binding.spinnerZoomMap.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedMapZoom = when (position) {
+                    0 -> 1f
+                    1 -> 5f
+                    2 -> 10f
+                    3 -> 15f
+                    4 -> 20f
+                    else -> 15f
+                }
+
+                // in shared pf
+                mySharedPreferences.setMapZoom(selectedMapZoom)
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
+        return root
 
 
     }
