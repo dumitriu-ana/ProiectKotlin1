@@ -47,7 +47,9 @@ class ClientiFragment : Fragment(), ClientAdaptor.OnItemClickListener {
         })
 
         binding.butonAdaugaClient.setOnClickListener {
-            findNavController().navigate(R.id.action_clientiFragment_to_adaugaClientFragment)
+            val action = ClientiFragmentDirections.actionClientiFragmentToAdaugaClientFragment("Adaugare Client")
+
+            findNavController().navigate(action)
         }
 
         clientiViewModel.text.observe(viewLifecycleOwner, Observer {

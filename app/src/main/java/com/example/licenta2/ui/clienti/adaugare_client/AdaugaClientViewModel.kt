@@ -2,10 +2,7 @@ package com.example.licenta2.ui.clienti.adaugare_client
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
 import com.example.licenta2.persistence.entities.Produs
@@ -31,4 +28,62 @@ class AdaugaClientViewModel : ViewModel() {
             appDatabase.clientDao().insertClient(client)
         }
     }
+
+    fun retrieveItem(id: Int): LiveData<Client> {
+        return appDatabase.clientDao().getItem(id).asLiveData()
+    }
+
+    fun updateClient(client: Client) {
+        viewModelScope.launch {
+            appDatabase.clientDao().update(client)
+        }
+    }
+
+
+    fun updateClient(
+        itemId: Int,
+        itemCif: String,
+        itemDenumire: String,
+        itemCui: String,
+        itemPlatitorTVA: Boolean,
+        itemLocalitate: String,
+        itemJudet: String,
+        itemAdresa: String,
+        itemNume: String,
+        itemTelefon: String,
+        itemEmail: String
+    ) {
+        val updatedItem:Client = getUpdatedClientEntry(itemId, itemCif, itemDenumire, itemCui, itemPlatitorTVA,
+        itemLocalitate, itemJudet, itemAdresa, itemNume, itemTelefon, itemEmail)
+        updateClient(updatedItem)
+    }
+
+fun getUpdatedClientEntry(
+    itemId: Int,
+    itemCif: String,
+    itemDenumire: String,
+    itemCui: String,
+    itemPlatitorTVA: Boolean,
+    itemLocalitate: String,
+    itemJudet: String,
+    itemAdresa: String,
+    itemNume: String,
+    itemTelefon: String,
+    itemEmail: String
+): Client {
+    return Client(
+        idClient = itemId,
+        cif = itemCif,
+        denumire = itemDenumire,
+        regCom = itemCui,
+        platitorDeTVA = itemPlatitorTVA,
+        localitate = itemLocalitate,
+        judet = itemJudet,
+        adresa = itemAdresa,
+        nume = itemNume,
+        telefon = itemTelefon,
+        email = itemEmail
+    )
+
+}
 }

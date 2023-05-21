@@ -70,8 +70,20 @@ class ClientDetaliiFragment : Fragment() {
             editTextNume.text = client.nume
             editTextTelefon.text = client.telefon
             editTextEmail.text = client.email
+            if(!client.platitorDeTVA!!)
+            {
+                checkBoxTVA.text = "Nu este platitor de tva"
+            }
 
             btnStergereClient.setOnClickListener { showConfirmationDialog() }
+
+            fabEditClient.setOnClickListener {
+                val action = ClientDetaliiFragmentDirections.actionClientDetaliiFragment2ToAdaugaClientFragment(
+                    "Editare client",
+                        client.idClient
+                )
+                findNavController().navigate(action)
+            }
 
 
 //            sellItem.setOnClickListener { viewModel.sellItem(item) }

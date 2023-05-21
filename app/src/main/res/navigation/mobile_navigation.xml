@@ -73,10 +73,13 @@
     <fragment
         android:id="@+id/adaugaClientFragment"
         android:name="com.example.licenta2.ui.clienti.adaugare_client.AdaugaClientFragment"
-        android:label="@string/adauga_client"
+        android:label="{title}"
         tools:layout="@layout/fragment_adauga_client" >
+        <argument
+            android:name="title"
+            app:argType="string" />
     <argument
-        android:name="item_id"
+        android:name="client_id"
         android:defaultValue="-1"
         app:argType="integer" />
     <action
@@ -155,7 +158,8 @@
             />
         <action
             android:id="@+id/action_clientDetaliiFragment2_to_adaugaClientFragment"
-            app:destination="@id/adaugaClientFragment"/>
+            app:destination="@id/adaugaClientFragment" />
+
     </fragment>
 
 </navigation>

@@ -5,15 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.licenta2.databinding.FragmentAdaugaClientBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
+import com.example.licenta2.ui.clienti.ClientDetaliiFragmentArgs
 import com.example.licenta2.ui.showSnackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,6 +24,10 @@ import kotlinx.coroutines.launch
 
 class AdaugaClientFragment : Fragment() {
     private  lateinit var adaugaClientViewModel: AdaugaClientViewModel
+
+    private val navigationArgs: ClientDetaliiFragmentArgs by navArgs()
+    lateinit var client: Client
+    private var clientId: Int = 0
     private var _binding: FragmentAdaugaClientBinding? = null;
     private val binding get() = _binding!!
 
@@ -186,6 +193,62 @@ class AdaugaClientFragment : Fragment() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val id = navigationArgs.clientId
+        if (id > 0) {
+            adaugaClientViewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
+                client = selectedItem
+                bindEditText(client)
+            }
+        } else {
+            binding.butonSalvareClient.setOnClickListener {
+                adaugaClientViewModel.insertClient(client)
+            }
+        }
+    }
+
+    private fun bindEditText(client: Client?) {
+        binding.apply {
+            editTextCIF.setText(client!!.cif, TextView.BufferType.SPANNABLE)
+            editTextDenumireClient.setText(client!!.denumire, TextView.BufferType.SPANNABLE)
+            editTextCUIRegCom.setText(client!!.regCom, TextView.BufferType.SPANNABLE)
+            editTextLocalitate.setText(client!!.localitate, TextView.BufferType.SPANNABLE)
+            editTextJudet.setText(client!!.judet, TextView.BufferType.SPANNABLE)
+            editTextAdresa.setText(client!!.adresa, TextView.BufferType.SPANNABLE)
+            editTextNume.setText(client!!.nume, TextView.BufferType.SPANNABLE)
+            editTextTelefon.setText(client!!.telefon, TextView.BufferType.SPANNABLE)
+            editTextEmail.setText(client!!.email, TextView.BufferType.SPANNABLE)
+
+            butonSalvareClient.setOnClickListener {
+                updateClient()
+            }
+        }
+    }
+
+    private fun updateClient() {
+        adaugaClientViewModel.updateClient(
+            navigationArgs.clientId,
+            binding.editTextCIF.text.toString(),
+                    binding.editTextDenumireClient.text.toString(),
+                    binding.editTextCUIRegCom.text.toString(),
+
+
+                    binding.checkBoxTVA.isChecked,
+
+                    binding.editTextLocalitate.text.toString(),
+                    binding.editTextJudet.text.toString(),
+                    binding.editTextAdresa.text.toString(),
+
+                    binding.editTextNume.text.toString(),
+                    binding.editTextTelefon.text.toString(),
+                    binding.editTextEmail.text.toString(),
+
+        )
+val action = AdaugaClientFragmentDirections.actionAdaugaClientFragmentToClientFragment()
+        findNavController().navigate(action)
+    }
 
 
     override fun onDestroyView() {
