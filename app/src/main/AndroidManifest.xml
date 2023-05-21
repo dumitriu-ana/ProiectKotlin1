@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
 
         android:allowBackup="true"
@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Licenta2.MyTheme"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCUvU4Gi4wBnpCuY5yxZZ0ejw1HZp6Q97M" />
+
 
 
         <activity

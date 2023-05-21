@@ -123,7 +123,7 @@ class AdaugaClientFragment : Fragment() {
         val platitorDeTVA = binding.checkBoxTVA.isChecked
 
         val localitate = binding.editTextLocalitate
-        if(!checkStringLitere(localitate.text.toString())){
+        if(!checkJudet(localitate.text.toString())){
             localitate.error = "Localitate invalida"
             valid = false
         }

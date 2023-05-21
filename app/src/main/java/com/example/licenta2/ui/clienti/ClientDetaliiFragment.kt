@@ -1,18 +1,24 @@
 package com.example.licenta2.ui.clienti
 
+import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.licenta2.R
 import com.example.licenta2.databinding.FragmentClientDetaliiBinding
-import com.example.licenta2.databinding.FragmentClientiBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
@@ -21,16 +27,19 @@ class ClientDetaliiFragment : Fragment() {
     private val navigationArgs: ClientDetaliiFragmentArgs by navArgs()
     lateinit var client: Client
 
-    private var clientId: Int = 0
+
+    private var googleMap: GoogleMap? = null
 
     private var _binding: FragmentClientDetaliiBinding? = null;
     private val binding get() = _binding!!
 
-   private lateinit var appDatabase: AppDatabase
+    private lateinit var appDatabase: AppDatabase
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?):
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ):
             View? {
         clientiViewModel = ViewModelProvider(this).get(ClientiViewModel::class.java)
         _binding = FragmentClientDetaliiBinding.inflate(inflater, container, false)
@@ -38,10 +47,12 @@ class ClientDetaliiFragment : Fragment() {
 
         clientiViewModel.initDatabase(requireContext())
 
-//        arguments?.let {
-//            val safeArgs = ClientDetaliiFragmentArgs.fromBundle(it)
-//            clientId = safeArgs.clientId
-//        }
+        binding.mapView.onCreate(savedInstanceState)
+        binding.mapView.getMapAsync { map ->
+            googleMap = map
+        }
+
+
 
         return root
     }
@@ -53,11 +64,8 @@ class ClientDetaliiFragment : Fragment() {
             client = selectedClient
             completareTV(client)
         }
-        // Retrieve the item details using the itemId.
-        // Attach an observer on the data (instead of polling for changes) and only update the
-        // the UI when the data actually changes.
 
-        }
+    }
 
     private fun completareTV(client: Client?) {
         binding.apply {
@@ -70,25 +78,34 @@ class ClientDetaliiFragment : Fragment() {
             editTextNume.text = client.nume
             editTextTelefon.text = client.telefon
             editTextEmail.text = client.email
-            if(!client.platitorDeTVA!!)
-            {
+            if (!client.platitorDeTVA!!) {
                 checkBoxTVA.text = "Nu este platitor de tva"
             }
 
-            btnStergereClient.setOnClickListener { showConfirmationDialog() }
 
-            fabEditClient.setOnClickListener {
-                val action = ClientDetaliiFragmentDirections.actionClientDetaliiFragment2ToAdaugaClientFragment(
-                    "Editare client",
-                        client.idClient
-                )
-                findNavController().navigate(action)
+            var adresaCompleta = "${client.localitate} ${client.adresa}"
+           // adresaCompleta= "Bucuresti Strada Crinul de Padure"
+            val geocoder = Geocoder(requireContext())
+            val addressList = geocoder.getFromLocationName(adresaCompleta, 1)
+            if (addressList != null && addressList.isNotEmpty()) {
+                val location = addressList[0]
+                val latLng = LatLng(location.latitude, location.longitude)
+                // ad marker
+                googleMap?.addMarker(MarkerOptions().position(latLng).title("Client Location"))
+                // Centrare harta + lvl de zoom
+                googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
             }
 
 
-//            sellItem.setOnClickListener { viewModel.sellItem(item) }
-//            deleteItem.setOnClickListener { showConfirmationDialog() }
-//            editItem.setOnClickListener { editItem() }
+            btnStergereClient.setOnClickListener { showConfirmationDialog() }
+            fabEditClient.setOnClickListener {
+                val action =
+                    ClientDetaliiFragmentDirections.actionClientDetaliiFragment2ToAdaugaClientFragment(
+                        "Editare client",
+                        client.idClient
+                    )
+                findNavController().navigate(action)
+            }
         }
     }
 
@@ -111,21 +128,28 @@ class ClientDetaliiFragment : Fragment() {
 
     private fun deleteClient() {
         clientiViewModel.deleteItem(client)
-          findNavController().navigateUp()
+        findNavController().navigateUp()
     }
 
 
-//    private fun showConfirmationDialog() {
-//        MaterialAlertDialogBuilder(requireContext())
-//            .setTitle(getString(android.R.string.dialog_alert_title))
-//            .setMessage(getString(R.string.delete_question))
-//            .setCancelable(false)
-//            .setNegativeButton(getString(R.string.no)) { _, _ -> }
-//            .setPositiveButton(getString(R.string.yes)) { _, _ ->
-//                deleteItem()
-//            }
-//            .show()
-//    }
+    override fun onResume() {
+        super.onResume()
+        binding.mapView?.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.mapView?.onPause()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.mapView?.onDestroy()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.mapView?.onSaveInstanceState(outState)
+    }
 }
 
 
