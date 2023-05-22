@@ -89,14 +89,14 @@
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/editTextNume"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextAdresa"
-                app:layout_constraintVertical_bias="0.267" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_adauga_imagineClient"
+                app:layout_constraintVertical_bias="0.0" />
 
             <View
                 android:id="@+id/view3"
@@ -332,6 +332,26 @@
                 app:layout_constraintHorizontal_bias="0.248"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCIF" />
+
+            <ImageView
+                android:id="@+id/img_view_client"
+                android:layout_width="211dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/fundal1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextAdresa" />
+
+            <Button
+                android:id="@+id/btn_adauga_imagineClient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Adauga Imagine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_view_client" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

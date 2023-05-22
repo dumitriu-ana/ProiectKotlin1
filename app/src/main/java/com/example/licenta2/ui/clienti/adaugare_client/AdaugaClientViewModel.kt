@@ -51,10 +51,11 @@ class AdaugaClientViewModel : ViewModel() {
         itemAdresa: String,
         itemNume: String,
         itemTelefon: String,
-        itemEmail: String
+        itemEmail: String,
+        itemImagePath:String,
     ) {
         val updatedItem:Client = getUpdatedClientEntry(itemId, itemCif, itemDenumire, itemCui, itemPlatitorTVA,
-        itemLocalitate, itemJudet, itemAdresa, itemNume, itemTelefon, itemEmail)
+        itemLocalitate, itemJudet, itemAdresa, itemNume, itemTelefon, itemEmail, itemImagePath)
         updateClient(updatedItem)
     }
 
@@ -69,7 +70,8 @@ fun getUpdatedClientEntry(
     itemAdresa: String,
     itemNume: String,
     itemTelefon: String,
-    itemEmail: String
+    itemEmail: String,
+    itemImagePath:String
 ): Client {
     return Client(
         idClient = itemId,
@@ -82,7 +84,8 @@ fun getUpdatedClientEntry(
         adresa = itemAdresa,
         nume = itemNume,
         telefon = itemTelefon,
-        email = itemEmail
+        email = itemEmail,
+        imagePath = itemImagePath
     )
 
 }

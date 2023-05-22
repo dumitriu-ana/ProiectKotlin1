@@ -22,6 +22,7 @@ data class Client(
     @ColumnInfo(name = "nume") val nume: String?,
     @ColumnInfo(name = "telefon") val telefon: String?,
     @ColumnInfo(name = "email") val email: String?,
+    val imagePath:String?
 )
 
 

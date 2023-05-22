@@ -1,18 +1,25 @@
 package com.example.licenta2.ui.clienti.adaugare_client
 
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+
 import com.example.licenta2.databinding.FragmentAdaugaClientBinding
 import com.example.licenta2.persistence.database.AppDatabase
 import com.example.licenta2.persistence.entities.Client
@@ -21,6 +28,10 @@ import com.example.licenta2.ui.showSnackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+import android.Manifest
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+
 
 class AdaugaClientFragment : Fragment() {
     private  lateinit var adaugaClientViewModel: AdaugaClientViewModel
@@ -28,8 +39,13 @@ class AdaugaClientFragment : Fragment() {
     private val navigationArgs: ClientDetaliiFragmentArgs by navArgs()
     lateinit var client: Client
     private var clientId: Int = 0
+    private var imagePath:String = ""
     private var _binding: FragmentAdaugaClientBinding? = null;
     private val binding get() = _binding!!
+
+    private val RESULT_LOAD_IMAGE=1
+    private val REQUEST_CODE_PERMISSIONS = 2
+
 
 
 
@@ -58,10 +74,77 @@ class AdaugaClientFragment : Fragment() {
                 writeData()
             }
 
+            //img
+
+            binding.btnAdaugaImagineClient.setOnClickListener {
+                if (ContextCompat.checkSelfPermission(requireContext(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED
+                ) {
+                    // Permisiunea a fost deja acordată, deschideți galeria
+                    openImageGallery()
+                } else {
+                    // Permisiunea nu a fost acordată, solicitați-o utilizatorului
+                    requestStoragePermission()
+                }
+            }
+
 
         })
         return root
     }
+
+    private fun openImageGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(intent, RESULT_LOAD_IMAGE)
+    }
+
+    private fun requestStoragePermission() {
+        val permissions = arrayOf(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        ActivityCompat.requestPermissions(
+            requireActivity(),
+            permissions,
+            REQUEST_CODE_PERMISSIONS
+        )
+    }
+
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                grantResults[1] == PackageManager.PERMISSION_GRANTED
+            ) {
+                // Permisiunile au fost acordate, deschideți galeria
+                openImageGallery()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Permisiunile de acces la stocarea externă au fost refuzate.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
+            val selectedImage: Uri? = data.data
+            imagePath = selectedImage?.toString() ?: ""
+            binding.imgViewClient.setImageURI(selectedImage)
+        }
+    }
+
 
     fun checkCif(input: String): Boolean {
         val pattern = "^RO\\d{8}\$".toRegex()
@@ -163,13 +246,19 @@ class AdaugaClientFragment : Fragment() {
             valid = false
         }
 
+
+
+
+
         if (valid) {
             val client = Client(cif = cif.text.toString(), denumire = denumire.text.toString(), regCom = regCom.text.toString(),
                 platitorDeTVA= platitorDeTVA,
             localitate = localitate.text.toString(),judet = judet.text.toString(),adresa=adresa.text.toString(),
-                nume = nume.text.toString(),telefon = telefon.text.toString(), email=email.text.toString())
+                nume = nume.text.toString(),telefon = telefon.text.toString(), email=email.text.toString(), imagePath = imagePath)
 
             adaugaClientViewModel.insertClient(client)
+
+            Toast.makeText(requireContext(), client.imagePath, Toast.LENGTH_LONG).show()
 
             binding.editTextCIF.text.clear()
             binding.editTextDenumireClient.text.clear()
@@ -221,6 +310,7 @@ class AdaugaClientFragment : Fragment() {
             editTextTelefon.setText(client!!.telefon, TextView.BufferType.SPANNABLE)
             editTextEmail.setText(client!!.email, TextView.BufferType.SPANNABLE)
 
+
             butonSalvareClient.setOnClickListener {
                 updateClient()
             }
@@ -244,6 +334,8 @@ class AdaugaClientFragment : Fragment() {
                     binding.editTextNume.text.toString(),
                     binding.editTextTelefon.text.toString(),
                     binding.editTextEmail.text.toString(),
+                    binding.imgViewClient.toString()
+
 
         )
 val action = AdaugaClientFragmentDirections.actionAdaugaClientFragmentToClientFragment()

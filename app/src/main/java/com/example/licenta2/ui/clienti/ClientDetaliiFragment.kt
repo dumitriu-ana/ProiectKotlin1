@@ -1,6 +1,7 @@
 package com.example.licenta2.ui.clienti
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,6 +29,9 @@ import retrofit2.Response
 import java.io.IOException
 import java.util.*
 import android.location.Address;
+import android.net.Uri
+import androidx.core.net.toUri
+import com.bumptech.glide.Glide
 
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place.Field
@@ -96,10 +100,14 @@ class ClientDetaliiFragment : Fragment() {
             if (!client.platitorDeTVA!!) {
                 checkBoxTVA.text = "Nu este platitor de tva"
             }
+            val imagePath = client.imagePath
+            val uri: Uri = Uri.parse(imagePath)
 
+            Glide.with(requireContext())
+                .load(uri)
+                .into(imgvDetaliiClient)
 
-
-
+//map si vreme
             val adresaClient = "${client.localitate} ${client.adresa}"
 
 

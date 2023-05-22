@@ -9,7 +9,7 @@ import com.example.licenta2.persistence.entities.*
 import com.example.licenta2.ui.produse.adaugare_produse.AdaugaProdus
 
 
-@Database(entities = [Produs::class, Client::class, Factura::class, Incasare::class, FacturaProdusCross::class], version = 11)
+@Database(entities = [Produs::class, Client::class, Factura::class, Incasare::class, FacturaProdusCross::class], version = 12)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun clientDao():ClientDao
