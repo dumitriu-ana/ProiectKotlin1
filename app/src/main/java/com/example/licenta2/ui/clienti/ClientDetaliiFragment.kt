@@ -1,7 +1,6 @@
 package com.example.licenta2.ui.clienti
 
 import android.content.Context
-import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,15 +19,21 @@ import com.example.licenta2.ui.clienti.adaugare_client.WeatherApiClient
 import com.example.licenta2.ui.clienti.adaugare_client.WeatherResponse
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.IOException
+import java.util.*
+import android.location.Address;
+
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place.Field
+import com.google.android.libraries.places.api.net.FetchPlaceRequest
+import com.google.android.libraries.places.api.net.FetchPlaceResponse
+import com.google.android.libraries.places.api.net.PlacesClient
 
 
 class ClientDetaliiFragment : Fragment() {
@@ -45,8 +50,6 @@ class ClientDetaliiFragment : Fragment() {
 
     private lateinit var appDatabase: AppDatabase
 
-    private val latitude = 44.34
-    private val longitude = 10.99
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,7 +82,6 @@ class ClientDetaliiFragment : Fragment() {
     }
 
 
-
     private fun completareTV(client: Client?) {
         binding.apply {
             editTextCIF.text = client!!.cif
@@ -96,24 +98,45 @@ class ClientDetaliiFragment : Fragment() {
             }
 
 
-            var adresaCompleta = "${client.localitate} ${client.adresa}"
-           // adresaCompleta= "Bucuresti Strada Crinul de Padure"
-            val geocoder = Geocoder(requireContext())
-            val addressList = geocoder.getFromLocationName(adresaCompleta, 1)
-            if (addressList != null && addressList.isNotEmpty()) {
-                val location = addressList[0]
-                val latLng = LatLng(location.latitude, location.longitude)
-                // ad marker
+
+
+            val adresaClient = "${client.localitate} ${client.adresa}"
+
+
+            try {
+
+
+                if (!adresaClient.isEmpty()) {
+                    val latLng = getLocationFromAddress(requireContext(), adresaClient)
+                    // ad marker
+                    googleMap?.addMarker(MarkerOptions().position(latLng!!).title(client.denumire))
+                    // Centrare harta + lvl de zoom
+                    val nivelZoom = mySharedPreferences.getMapZoom()
+                    googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng!!, nivelZoom))
+                    googleMap?.mapType = mySharedPreferences.getMapMode()
+
+                    if (latLng != null) {
+                        getWeatherDetails(latLng.latitude, latLng.longitude)
+                    }
+                }
+            } catch (e: IOException) {
+                val latitudinePredefinita = 44.421992
+                val longitudinePredefinita = 26.031998
+                Toast.makeText(requireContext(), "Eroare la geocodare", Toast.LENGTH_SHORT).show()
+
+                val latLng = LatLng(latitudinePredefinita, longitudinePredefinita)
                 googleMap?.addMarker(MarkerOptions().position(latLng).title(client.denumire))
-                // Centrare harta + lvl de zoom
                 val nivelZoom = mySharedPreferences.getMapZoom()
                 googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, nivelZoom))
                 googleMap?.mapType = mySharedPreferences.getMapMode()
-
-                getWeatherDetails(location.latitude, location.longitude)
+                getWeatherDetails(latitudinePredefinita, longitudinePredefinita)
             }
 
 
+
+
+
+            //btn stergere
             btnStergereClient.setOnClickListener { showConfirmationDialog() }
             fabEditClient.setOnClickListener {
                 val action =
@@ -128,13 +151,40 @@ class ClientDetaliiFragment : Fragment() {
 
 
 
+    fun getLocationFromAddress(context: Context, strAddress: String): LatLng? {
+        val coder = Geocoder(context)
+        var addressList: List<Address>? = null
+        var p1: LatLng? = null
+
+        try {
+            // May throw an IOException
+            addressList = coder.getFromLocationName(strAddress, 5)
+            if (addressList == null) {
+                p1 = LatLng(44.42199226, 26.031998)
+                return p1
+            }
+
+            val location = addressList[0]
+            p1 = LatLng(location.latitude, location.longitude)
+
+        } catch (ex: IOException) {
+            p1 = LatLng(44.42199226, 26.031998)
+            return p1
+        }
+
+        return p1
+    }
+
     private fun getWeatherDetails(latitude: Double, longitude: Double) {
         val apiKey = "7706df1a3d4cf2246208c814647b627a"
 
         val call = WeatherApiClient.weatherApiService.getWeatherData(latitude, longitude, apiKey)
         call.enqueue(object : Callback<WeatherResponse> {
 
-            override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
+            override fun onResponse(
+                call: Call<WeatherResponse>,
+                response: Response<WeatherResponse>
+            ) {
                 if (response.isSuccessful) {
                     val weatherResponse = response.body()
 
@@ -156,7 +206,11 @@ class ClientDetaliiFragment : Fragment() {
                     }
 
                 } else {
-                    Toast.makeText(requireContext(), "Fetch pentru datele de vreme nu a functionat", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Fetch pentru datele de vreme nu a functionat",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -197,6 +251,7 @@ class ClientDetaliiFragment : Fragment() {
         super.onPause()
         binding.mapView?.onPause()
     }
+
     override fun onDestroy() {
         super.onDestroy()
         binding.mapView?.onDestroy()
@@ -206,6 +261,8 @@ class ClientDetaliiFragment : Fragment() {
         super.onSaveInstanceState(outState)
         binding.mapView?.onSaveInstanceState(outState)
     }
+
+
 }
 
 
