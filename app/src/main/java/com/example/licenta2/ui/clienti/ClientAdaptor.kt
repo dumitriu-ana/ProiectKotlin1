@@ -1,11 +1,14 @@
 package com.example.licenta2.ui.clienti
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.licenta2.R
 import com.example.licenta2.persistence.entities.Client
 
@@ -42,6 +45,10 @@ class ClientAdaptor(
         holder.clientAdresaTextView.text = adresaTotal
         holder.clientRegistrulComertuluiTextView.text = client.regCom
 
+//        Glide.with(context)
+//            .load(Uri.parse(client.imagePath))
+//            .into(holder.clientImagine)
+
         holder.itemView.setOnClickListener {
             onItemClickListener?.onItemClick(client.idClient)
         }
@@ -60,5 +67,6 @@ class ClientAdaptor(
         val clientAdresaTextView: TextView = itemView.findViewById(R.id.client_adresa)
         val clientRegistrulComertuluiTextView: TextView =
             itemView.findViewById(R.id.client_registrul_comertului)
+        val clientImagine: ImageView = itemView.findViewById(R.id.imgv_client_adapter)
     }
 }

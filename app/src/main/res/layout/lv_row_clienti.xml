@@ -14,14 +14,13 @@
         android:id="@+id/client_denumire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:text="denumire"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toEndOf="@+id/imgv_client_adapter"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -29,12 +28,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="ro123456789012"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/client_denumire" />
+        app:layout_constraintTop_toBottomOf="@+id/imgv_client_adapter" />
 
     <TextView
         android:id="@+id/client_nume"
@@ -96,14 +95,24 @@
         android:id="@+id/client_registrul_comertului"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="25dp"
-        android:textStyle="italic"
         android:text="123456789"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/client_cif"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/client_denumire" />
+
+    <ImageView
+        android:id="@+id/imgv_client_adapter"
+        android:layout_width="71dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fundal1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
