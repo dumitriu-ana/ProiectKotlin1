@@ -13,7 +13,7 @@ import com.example.licenta2.R
 
 private val handler = Handler()
 
-private val delayDuration = 2000L
+private val delayDuration = 700L
 
 class SplashFragment : Fragment() {
 
