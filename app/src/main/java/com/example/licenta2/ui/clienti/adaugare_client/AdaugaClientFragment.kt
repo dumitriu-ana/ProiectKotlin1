@@ -29,8 +29,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 import android.Manifest
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.bumptech.glide.Glide
 
 
 class AdaugaClientFragment : Fragment() {
@@ -141,6 +143,8 @@ class AdaugaClientFragment : Fragment() {
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
             val selectedImage: Uri? = data.data
             imagePath = selectedImage?.toString() ?: ""
+
+
             binding.imgViewClient.setImageURI(selectedImage)
         }
     }
@@ -290,8 +294,11 @@ class AdaugaClientFragment : Fragment() {
             adaugaClientViewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
                 client = selectedItem
                 bindEditText(client)
+                binding.imgViewClient.visibility = View.GONE
+                binding.btnAdaugaImagineClient.visibility = View.GONE
+                }
             }
-        } else {
+         else {
             binding.butonSalvareClient.setOnClickListener {
                 adaugaClientViewModel.insertClient(client)
             }
@@ -334,7 +341,7 @@ class AdaugaClientFragment : Fragment() {
                     binding.editTextNume.text.toString(),
                     binding.editTextTelefon.text.toString(),
                     binding.editTextEmail.text.toString(),
-                    binding.imgViewClient.toString()
+            client?.imagePath ?: ""
 
 
         )

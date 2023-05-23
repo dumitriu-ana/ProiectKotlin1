@@ -100,12 +100,20 @@ class ClientDetaliiFragment : Fragment() {
             if (!client.platitorDeTVA!!) {
                 checkBoxTVA.text = "Nu este platitor de tva"
             }
-            val imagePath = client.imagePath
-            val uri: Uri = Uri.parse(imagePath)
 
-            Glide.with(requireContext())
-                .load(uri)
-                .into(imgvDetaliiClient)
+            //setare img in imgview
+            val imagePath = client.imagePath
+            if (!imagePath.isNullOrEmpty()) {
+                val uri: Uri = Uri.parse(imagePath)
+                Glide.with(requireContext())
+                    .load(uri)
+                    .into(imgvDetaliiClient)
+            } else {
+
+                //imgvDetaliiClient.setImageResource(R.drawable.default_image)
+                Toast.makeText(requireContext(), "Imaginea nu există", Toast.LENGTH_LONG).show()
+            }
+
 
 //map si vreme
             val adresaClient = "${client.localitate} ${client.adresa}"
@@ -146,6 +154,8 @@ class ClientDetaliiFragment : Fragment() {
 
             //btn stergere
             btnStergereClient.setOnClickListener { showConfirmationDialog() }
+
+
             fabEditClient.setOnClickListener {
                 val action =
                     ClientDetaliiFragmentDirections.actionClientDetaliiFragment2ToAdaugaClientFragment(
